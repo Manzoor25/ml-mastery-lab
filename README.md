@@ -6,7 +6,7 @@ Runnable machine learning projects, from the linear algebra you need on a whiteb
 
 This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 2 in progress. Four foundations projects and the first data-cleanup project have measured results. The rest of the curriculum is planned.
+> Status: Phase 2 in progress. Foundations and the data section have measured results. Feature engineering is next.
 
 ## Who it is for
 
@@ -210,7 +210,7 @@ A `not run` cell is not a result.
 | [`01-data-and-eda/01-messy-data-cleanup`](01-data-and-eda/01-messy-data-cleanup/) | Missing data and cleanup | A census extract whose test labels and padded fields do not match the training file. | Padded categories raised published-test log loss from 0.3207506692781671 to 0.42049919201950064 |
 | [`01-data-and-eda/02-eda-report`](01-data-and-eda/02-eda-report/) | Exploratory data analysis | A stakeholder asks whether last year's bike-share hours describe next year. | 2012 RMSE 158.0887211276591 versus training-mean 227.80800899708046; a random split scored 110.56838688362778 |
 | [`01-data-and-eda/03-data-validation`](01-data-and-eda/03-data-validation/) | Data validation | A new census extract should fail a schema check instead of being scored silently. | Null-only schema passed; reported schema failed all 16281 income labels. Padded features raised log loss from 0.31833658576426743 to 0.425486700706032 |
-| `01-data-and-eda/04-sql-for-ml` | SQL for ML | Build customer features from orders, customers, and products without standing up a warehouse. | not run |
+| [`01-data-and-eda/04-sql-for-ml`](01-data-and-eda/04-sql-for-ml/) | SQL for ML | Build customer features from invoice lines without letting the label window into the query. | Honest history log loss 0.6063879510172124 versus training-rate 0.6772728728233448. A query through the extract end scored 0.03506553353837828 and was not selected |
 
 ### 02 Feature engineering
 

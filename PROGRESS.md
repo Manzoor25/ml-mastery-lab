@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `01-data-and-eda/04-sql-for-ml`
+Next: `02-feature-engineering/01-numeric-transforms`
 
 Last updated: 2026-10-27
 
@@ -48,6 +48,12 @@ Project count: 87
   0.31833658576426743 to 0.425486700706032. An unknown workclass token failed
   the schema, and its log-loss interval included zero. LinkedIn draft:
   `linkedin-posts/07-data-validation.md`.
+- 2026-10-27: `01-data-and-eda/04-sql-for-ml` done. Honest history log loss
+  0.6063879510172124 versus a training-rate baseline of 0.6772728728233448.
+  A query through the extract end scored 0.03506553353837828 because all
+  1952 positive customers gained an order. A history-invoice split put 1254
+  of 3317 eligible customers on both sides. LinkedIn draft:
+  `linkedin-posts/08-sql-for-ml.md`.
 
 ## Phase 1 - Setup
 
@@ -80,7 +86,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | `01-data-and-eda/01-messy-data-cleanup` | done | MCAR, MAR, MNAR, duplicates, inconsistent categories, outliers |
 | `01-data-and-eda/02-eda-report` | done | Univariate and bivariate views, correlation versus causation, train versus test shift |
 | `01-data-and-eda/03-data-validation` | done | Schema checks that fail a bad file before scoring |
-| `01-data-and-eda/04-sql-for-ml` | todo | Multi-table feature extraction with DuckDB |
+| `01-data-and-eda/04-sql-for-ml` | done | Multi-table feature extraction with DuckDB |
 
 ### 02 Feature engineering
 

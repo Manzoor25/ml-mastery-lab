@@ -1,0 +1,491 @@
+{
+  "duckdb_version": "1.4.4",
+  "data": {
+    "doi": "10.24432/C5BW33",
+    "source_url": "https://archive.ics.uci.edu/static/public/352/data.csv",
+    "api_url": "https://archive.ics.uci.edu/dataset/352/online+retail",
+    "creator": "Daqing Chen",
+    "license": "CC BY 4.0",
+    "license_note": "The API record has no license field. The donation policy says approved datasets are CC BY 4.0.",
+    "api_num_instances": 541909,
+    "api_num_features": 6,
+    "api_has_missing_values": "no",
+    "api_customer_id_missing_values": "no",
+    "api_description_missing_values": "no",
+    "api_date_text": "01/12/2010 and 09/12/2011",
+    "api_cancellation_text": "letter 'c'",
+    "api_invoice_text": "a 6-digit integral number uniquely assigned to each transaction",
+    "api_stock_text": "a 5-digit integral number uniquely assigned to each distinct product",
+    "api_customer_text": "a 5-digit integral number uniquely assigned to each customer",
+    "api_country_text": "the name of the country where each customer resides",
+    "api_intro_paper_opened": false,
+    "n_file_columns": 8
+  },
+  "protocol": {
+    "cutoff": "2011-09-01 00:00:00",
+    "cutoff_date": "2011-09-01",
+    "date_format": "%m/%d/%Y %H:%M",
+    "purchase_rule": "quantity > 0 AND unit_price > 0 AND upper(invoice_no) NOT LIKE 'C%'",
+    "label": "any purchase line at or after the cutoff",
+    "eligible": "non-null customer id and a purchase line before the cutoff",
+    "reported_model": "honest_history",
+    "reported_features": [
+      "n_orders",
+      "n_lines",
+      "n_products",
+      "monetary",
+      "recency_days",
+      "n_cancel_invoices",
+      "mean_unit_price"
+    ],
+    "selection_uses_test_scores": false,
+    "leaky_feature_before": "2011-12-09 12:50:01",
+    "leaky_recency_anchor": "2011-12-09",
+    "split": "customer",
+    "test_size": 0.2,
+    "seed": 42,
+    "invoice_split_seed": 42,
+    "logistic_c": 1.0,
+    "logistic_max_iter": 2000,
+    "log_loss_clip": 1e-12,
+    "decision_threshold": 0.5,
+    "threshold_was_tuned": false,
+    "bootstrap_resamples": 1000,
+    "bootstrap_seed": 7,
+    "gap_definition": "pointwise log loss of the first model minus the second",
+    "not_selected": [
+      "leaky_window",
+      "product_stat_leak",
+      "signed_monetary",
+      "latest_country"
+    ]
+  },
+  "inventory": {
+    "file": {
+      "n_rows": 541909,
+      "n_invoices": 25900,
+      "n_products": 4070,
+      "n_customers": 4372,
+      "n_countries": 38,
+      "n_missing_customer_id": 135080,
+      "n_missing_description": 1454,
+      "n_unparsed_dates": 0,
+      "n_missing_invoice": 0,
+      "n_missing_stock": 0,
+      "n_missing_country": 0,
+      "parsed_min": "2010-12-01 08:26:00",
+      "parsed_max": "2011-12-09 12:50:00",
+      "lexicographic_min": "1/10/2011 10:04",
+      "lexicographic_max": "9/9/2011 9:52",
+      "n_cancel_prefix_rows": 9288,
+      "n_lower_c_prefix_rows": 0,
+      "n_negative_quantity_rows": 10624,
+      "n_negative_price_rows": 2,
+      "n_zero_price_rows": 2515,
+      "n_purchase_rows": 530104,
+      "n_cancel_prefix_rows_with_positive_quantity": 0,
+      "n_negative_quantity_rows_without_cancel_prefix": 1336,
+      "n_stock_rows_not_five_digit": 54873,
+      "n_padded_country_rows": 0
+    },
+    "orders": {
+      "n_invoices": 25900,
+      "n_multi_customer": 0,
+      "n_multi_timestamp": 43,
+      "n_multi_country": 0,
+      "multi_timestamp_min_span_minutes": 1,
+      "multi_timestamp_max_span_minutes": 1,
+      "n_invoices_spanning_cutoff": 0
+    },
+    "products": {
+      "n_products": 4070,
+      "n_products_with_multiple_descriptions": 650,
+      "max_descriptions_for_one_code": 8,
+      "n_stock_codes_not_five_digit": 1124
+    },
+    "exact_duplicate_rows": 5268,
+    "null_customer_rows": {
+      "n_rows": 135080,
+      "n_invoices": 3710,
+      "n_countries": 9,
+      "n_products": 3810
+    },
+    "windows": {
+      "n_purchase_rows_before_cutoff": 313059,
+      "n_purchase_rows_at_or_after_cutoff": 217045
+    }
+  },
+  "population": {
+    "n_eligible": 3317,
+    "n_positive": 1952,
+    "positive_rate": 0.5884835694905035,
+    "n_train": 2653,
+    "n_test": 664,
+    "train_positive_rate": 0.5883905013192612,
+    "test_positive_rate": 0.588855421686747,
+    "n_orders_increased_by_leaky_window": 1952,
+    "n_customers_signed_monetary_differs": 1149,
+    "modal_latest_country": "United Kingdom",
+    "n_modal_latest_country": 2989,
+    "modal_latest_country_share": 0.9011154657823335,
+    "n_test_rows_with_country_absent_from_train": 1,
+    "country_counts": [
+      {
+        "country": "United Kingdom",
+        "n": 2989
+      },
+      {
+        "country": "Germany",
+        "n": 72
+      },
+      {
+        "country": "France",
+        "n": 69
+      },
+      {
+        "country": "Belgium",
+        "n": 23
+      },
+      {
+        "country": "Spain",
+        "n": 21
+      },
+      {
+        "country": "Switzerland",
+        "n": 17
+      },
+      {
+        "country": "Portugal",
+        "n": 12
+      },
+      {
+        "country": "Italy",
+        "n": 9
+      },
+      {
+        "country": "Channel Islands",
+        "n": 9
+      },
+      {
+        "country": "Australia",
+        "n": 8
+      },
+      {
+        "country": "Netherlands",
+        "n": 8
+      },
+      {
+        "country": "Austria",
+        "n": 8
+      },
+      {
+        "country": "Norway",
+        "n": 7
+      },
+      {
+        "country": "Sweden",
+        "n": 7
+      },
+      {
+        "country": "Japan",
+        "n": 6
+      },
+      {
+        "country": "Denmark",
+        "n": 6
+      },
+      {
+        "country": "Finland",
+        "n": 6
+      },
+      {
+        "country": "Poland",
+        "n": 6
+      },
+      {
+        "country": "Unspecified",
+        "n": 4
+      },
+      {
+        "country": "Cyprus",
+        "n": 4
+      },
+      {
+        "country": "Canada",
+        "n": 4
+      },
+      {
+        "country": "Greece",
+        "n": 3
+      },
+      {
+        "country": "EIRE",
+        "n": 3
+      },
+      {
+        "country": "Malta",
+        "n": 2
+      },
+      {
+        "country": "Bahrain",
+        "n": 2
+      },
+      {
+        "country": "Israel",
+        "n": 2
+      },
+      {
+        "country": "United Arab Emirates",
+        "n": 1
+      },
+      {
+        "country": "Iceland",
+        "n": 1
+      },
+      {
+        "country": "Lithuania",
+        "n": 1
+      },
+      {
+        "country": "European Community",
+        "n": 1
+      },
+      {
+        "country": "USA",
+        "n": 1
+      },
+      {
+        "country": "Brazil",
+        "n": 1
+      },
+      {
+        "country": "Saudi Arabia",
+        "n": 1
+      },
+      {
+        "country": "Czech Republic",
+        "n": 1
+      },
+      {
+        "country": "Singapore",
+        "n": 1
+      },
+      {
+        "country": "Lebanon",
+        "n": 1
+      }
+    ],
+    "multi_country_all_lines": {
+      "n_customers": 4372,
+      "n_multi_country": 8
+    },
+    "multi_country_purchase_before_cutoff": {
+      "n_customers": 3317,
+      "n_multi_country": 6
+    }
+  },
+  "feature_summary": {
+    "n_orders": {
+      "min": 1.0,
+      "max": 127.0,
+      "mean": 3.4407597226409408
+    },
+    "n_lines": {
+      "min": 1.0,
+      "max": 4222.0,
+      "mean": 68.2746457642448
+    },
+    "n_products": {
+      "min": 1.0,
+      "max": 1190.0,
+      "mean": 49.0880313536328
+    },
+    "monetary": {
+      "min": 2.9,
+      "max": 176355.93999999986,
+      "mean": 1579.511776303889
+    },
+    "recency_days": {
+      "min": 1.0,
+      "max": 274.0,
+      "mean": 93.14290021103406
+    },
+    "n_cancel_invoices": {
+      "min": 0.0,
+      "max": 29.0,
+      "mean": 0.7169128730780826
+    },
+    "mean_unit_price": {
+      "min": 0.10999999999999999,
+      "max": 451.42,
+      "mean": 4.160431316050596
+    }
+  },
+  "invoice_split": {
+    "all_customer_invoices": {
+      "seed": 42,
+      "test_size": 0.2,
+      "n_invoices": 22190,
+      "n_test_invoices": 4438,
+      "n_customers": 4372,
+      "n_customers_in_both": 1876,
+      "n_eligible": 3317,
+      "n_eligible_in_both": 1676
+    },
+    "history_invoices": {
+      "seed": 42,
+      "test_size": 0.2,
+      "n_invoices": 13842,
+      "n_test_invoices": 2768,
+      "n_customers": 3360,
+      "n_customers_in_both": 1255,
+      "n_eligible": 3317,
+      "n_eligible_in_both": 1254
+    }
+  },
+  "training_recency_bins": [
+    {
+      "bin": "1-30 days",
+      "low": 1,
+      "high": 30,
+      "n_customers": 735,
+      "n_positive": 574,
+      "repeat_rate": 0.780952380952381
+    },
+    {
+      "bin": "31-90 days",
+      "low": 31,
+      "high": 90,
+      "n_customers": 801,
+      "n_positive": 520,
+      "repeat_rate": 0.6491885143570537
+    },
+    {
+      "bin": "91-180 days",
+      "low": 91,
+      "high": 180,
+      "n_customers": 695,
+      "n_positive": 323,
+      "repeat_rate": 0.46474820143884893
+    },
+    {
+      "bin": "181 days or more",
+      "low": 181,
+      "high": null,
+      "n_customers": 422,
+      "n_positive": 144,
+      "repeat_rate": 0.3412322274881517
+    }
+  ],
+  "scores": {
+    "constant_rate": {
+      "n_scored": 664,
+      "log_loss": 0.6772728728233448,
+      "accuracy_at_0_5": 0.588855421686747,
+      "n_iter": null,
+      "roc_auc": null,
+      "train_positive_rate": 0.5883905013192612
+    },
+    "honest_history": {
+      "n_scored": 664,
+      "log_loss": 0.6063879510172124,
+      "accuracy_at_0_5": 0.6656626506024096,
+      "n_iter": 20,
+      "roc_auc": 0.7186419718389028
+    },
+    "recency_only": {
+      "n_scored": 664,
+      "log_loss": 0.6494876916888732,
+      "accuracy_at_0_5": 0.6310240963855421,
+      "n_iter": 4,
+      "roc_auc": 0.6494664755534321
+    },
+    "leaky_window": {
+      "n_scored": 664,
+      "log_loss": 0.03506553353837828,
+      "accuracy_at_0_5": 0.9969879518072289,
+      "n_iter": 14,
+      "roc_auc": 0.9999063170418669
+    },
+    "product_stat_leak": {
+      "n_scored": 664,
+      "log_loss": 0.6773985009263662,
+      "accuracy_at_0_5": 0.588855421686747,
+      "n_iter": 2,
+      "roc_auc": 0.5132139812446718
+    },
+    "signed_monetary": {
+      "n_scored": 664,
+      "log_loss": 0.6308298095776333,
+      "accuracy_at_0_5": 0.6475903614457831,
+      "n_iter": 9,
+      "roc_auc": 0.6877640688382376
+    },
+    "latest_country": {
+      "n_scored": 664,
+      "log_loss": 0.6790522959989986,
+      "accuracy_at_0_5": 0.5933734939759037,
+      "n_iter": 29,
+      "roc_auc": 0.49045839071414526
+    }
+  },
+  "paired_log_loss_gaps": {
+    "recency_only_minus_constant": {
+      "mean_difference": -0.027785181134471787,
+      "interval_low": -0.05541737662956631,
+      "interval_high": -0.0019395725379725477,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "honest_history_minus_constant": {
+      "mean_difference": -0.07088492180613244,
+      "interval_low": -0.1090016714913747,
+      "interval_high": -0.030176592632029153,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "honest_history_minus_recency_only": {
+      "mean_difference": -0.04309974067166066,
+      "interval_low": -0.0736253154532777,
+      "interval_high": -0.006368137132793607,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "leaky_window_minus_honest_history": {
+      "mean_difference": -0.5713224174788343,
+      "interval_low": -0.6115919502171333,
+      "interval_high": -0.5353588281723854,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "product_stat_leak_minus_honest_history": {
+      "mean_difference": 0.07101054990915373,
+      "interval_low": 0.030296408118255028,
+      "interval_high": 0.10901785688689815,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "signed_monetary_minus_honest_history": {
+      "mean_difference": 0.024441858560420825,
+      "interval_low": -0.004563709605442553,
+      "interval_high": 0.05345779296215528,
+      "excludes_zero": false,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "latest_country_minus_honest_history": {
+      "mean_difference": 0.07266434498178614,
+      "interval_low": 0.03163814459614468,
+      "interval_high": 0.11073493324936706,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    }
+  },
+  "elapsed_seconds": 1.3839195000000473
+}

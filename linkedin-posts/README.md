@@ -13,3 +13,4 @@ When a project is done, copy its `LINKEDIN.md` here as `NN-project-name.md`, in 
 | 05 | [05-messy-data-cleanup.md](05-messy-data-cleanup.md) | Draft. Not published. |
 | 06 | [06-eda-report.md](06-eda-report.md) | Draft. Not published. |
 | 07 | [07-data-validation.md](07-data-validation.md) | Draft. Not published. |
+| 08 | [08-sql-for-ml.md](08-sql-for-ml.md) | Draft. Not published. |
