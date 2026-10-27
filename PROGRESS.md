@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `00-foundations/03-bias-variance`
+Next: `00-foundations/04-linear-logistic-from-scratch`
 
 Last updated: 2026-10-27
 
@@ -23,6 +23,9 @@ Project count: 87
 - 2026-10-27: `00-foundations/02-gradient-descent` done. Wine least-squares test
   MSE 0.4190 versus mean baseline 0.7444. Step 2.5/L stopped after epoch 22.
   LinkedIn draft: `linkedin-posts/02-gradient-descent.md`.
+- 2026-10-27: `00-foundations/03-bias-variance` done. Degree-3 fresh-grid MSE
+  0.3384. Wine linear holdout MSE 0.4024 versus mean 0.6044. Degree 15 and
+  the full tree failed. LinkedIn draft: `linkedin-posts/03-bias-variance.md`.
 
 ## Phase 1 - Setup
 
@@ -45,7 +48,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | --- | --- | --- |
 | `00-foundations/01-linalg-probability-stats` | done | Vectors, matrices, eigendecomposition, distributions, hypothesis tests, bootstrap |
 | `00-foundations/02-gradient-descent` | done | Batch, stochastic, mini-batch, momentum, and Adam on a visible loss surface |
-| `00-foundations/03-bias-variance` | todo | An empirical decomposition, not only the textbook picture |
+| `00-foundations/03-bias-variance` | done | An empirical decomposition, not only the textbook picture |
 | `00-foundations/04-linear-logistic-from-scratch` | todo | Both models from scratch, then a check against scikit-learn |
 
 ### 01 Data and EDA
