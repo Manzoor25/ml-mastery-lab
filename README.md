@@ -6,7 +6,7 @@ Runnable machine learning projects, from the linear algebra you need on a whiteb
 
 This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 2 in progress. Foundations, the data section, and the first feature-engineering project have measured results.
+> Status: Phase 2 in progress. Foundations, the data section, and the first two feature-engineering projects have measured results.
 
 ## Who it is for
 
@@ -217,7 +217,7 @@ A `not run` cell is not a result.
 | Project | Topic | Use case | Key result |
 | --- | --- | --- | --- |
 | [`02-feature-engineering/01-numeric-transforms`](02-feature-engineering/01-numeric-transforms/) | Numeric transforms | Screen a concrete mix for compressive strength before the cylinder break. | Group CV selected degree-3 polynomials. Holdout RMSE 6.190033630528194 versus a training-mean baseline of 15.664861218083027. The holdout gap against an age log included zero |
-| `02-feature-engineering/02-categorical-encoding` | Categorical encoding | City, plan tier, and user id do not want the same encoding. | not run |
+| [`02-feature-engineering/02-categorical-encoding`](02-feature-engineering/02-categorical-encoding/) | Categorical encoding | Flag a diabetic encounter for 30-day readmission without one-hotting hundreds of diagnosis codes. | Group CV selected smoothed out-of-fold target encoding. Holdout log loss 0.32616331460860226 versus a training-rate baseline of 0.33981780404157347. Full one-hot lost. An in-sample target encoding was not eligible |
 | `02-feature-engineering/03-data-leakage` | Data leakage | A model looks excellent because the label leaked, or because the full file was scaled before the split. | not run |
 | `02-feature-engineering/04-datetime-features` | Date and time features | Hour and day of week are cycles. Treating them as ordinary numbers points the wrong way at midnight. | not run |
 | `02-feature-engineering/05-text-features` | Text features | Turn reviews or tickets into numeric features a linear model can use. | not run |
