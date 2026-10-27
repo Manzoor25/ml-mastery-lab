@@ -11,3 +11,4 @@ When a project is done, copy its `LINKEDIN.md` here as `NN-project-name.md`, in 
 | 03 | [03-bias-variance.md](03-bias-variance.md) | Draft. Not published. |
 | 04 | [04-linear-logistic-from-scratch.md](04-linear-logistic-from-scratch.md) | Draft. Not published. |
 | 05 | [05-messy-data-cleanup.md](05-messy-data-cleanup.md) | Draft. Not published. |
+| 06 | [06-eda-report.md](06-eda-report.md) | Draft. Not published. |
