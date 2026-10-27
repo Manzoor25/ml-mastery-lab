@@ -6,7 +6,7 @@ Runnable machine learning projects, from the linear algebra you need on a whiteb
 
 This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 2 in progress. Three foundations projects have measured results. The rest of the curriculum is planned.
+> Status: Phase 2 in progress. Four foundations projects have measured results. The rest of the curriculum is planned.
 
 ## Who it is for
 
@@ -201,7 +201,7 @@ A `not run` cell is not a result.
 | [`00-foundations/01-linalg-probability-stats`](00-foundations/01-linalg-probability-stats/) | Linear algebra, probability, statistics | Decide whether a measured gap is signal or sampling noise before anyone fits a model. | Unscaled PC1 holds 0.9981 of variance; null 13-test false-alarm rate is 0.387 |
 | [`00-foundations/02-gradient-descent`](00-foundations/02-gradient-descent/) | Gradient descent | A training loss stalls or blows up, and you need to see why the step moved that way. | Held-out MSE 0.4190 versus mean baseline 0.7444; step 2.5/L stopped after epoch 22 |
 | [`00-foundations/03-bias-variance`](00-foundations/03-bias-variance/) | Bias-variance tradeoff | A flexible model wins on the training customers and loses on the next month. | Degree-3 fresh MSE 0.3384; wine holdout 0.4024 versus mean 0.6044 |
-| `00-foundations/04-linear-logistic-from-scratch` | Linear and logistic regression | A yes-or-no score whose coefficients you can derive, then verify against a library. | not run |
+| [`00-foundations/04-linear-logistic-from-scratch`](00-foundations/04-linear-logistic-from-scratch/) | Linear and logistic regression | A yes-or-no score whose coefficients you can derive, then verify against a library. | OLS holdout MSE 0.5558915986952442 versus mean 1.3106960720039365; penalized log loss 0.07716713894283675 |
 
 ### 01 Data and EDA
 
