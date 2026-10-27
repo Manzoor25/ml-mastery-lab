@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `02-feature-engineering/01-numeric-transforms`
+Next: `02-feature-engineering/02-categorical-encoding`
 
 Last updated: 2026-10-27
 
@@ -54,6 +54,12 @@ Project count: 87
   1952 positive customers gained an order. A history-invoice split put 1254
   of 3317 eligible customers on both sides. LinkedIn draft:
   `linkedin-posts/08-sql-for-ml.md`.
+- 2026-10-27: `02-feature-engineering/01-numeric-transforms` done. Group CV
+  selected degree-3 polynomials. Holdout RMSE 6.190033630528194 versus a
+  training-mean baseline of 15.664861218083027. Logging age did most of the
+  work. The holdout gap against that log included zero
+  (-0.06188102255652603). LinkedIn draft:
+  `linkedin-posts/09-numeric-transforms.md`.
 
 ## Phase 1 - Setup
 
@@ -92,7 +98,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 
 | Path | Status | Teaches |
 | --- | --- | --- |
-| `02-feature-engineering/01-numeric-transforms` | todo | Scaling, log, Box-Cox, Yeo-Johnson, binning, interactions, polynomials |
+| `02-feature-engineering/01-numeric-transforms` | done | Scaling, log, Box-Cox, Yeo-Johnson, binning, interactions, polynomials |
 | `02-feature-engineering/02-categorical-encoding` | todo | One-hot, ordinal, out-of-fold target encoding, frequency, hashing, high cardinality |
 | `02-feature-engineering/03-data-leakage` | todo | Target leakage, temporal leakage, and preprocessing fit before the split |
 | `02-feature-engineering/04-datetime-features` | todo | Calendar fields, cyclical encoding, lags, rolling windows |

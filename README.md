@@ -6,7 +6,7 @@ Runnable machine learning projects, from the linear algebra you need on a whiteb
 
 This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 2 in progress. Foundations and the data section have measured results. Feature engineering is next.
+> Status: Phase 2 in progress. Foundations, the data section, and the first feature-engineering project have measured results.
 
 ## Who it is for
 
@@ -216,7 +216,7 @@ A `not run` cell is not a result.
 
 | Project | Topic | Use case | Key result |
 | --- | --- | --- | --- |
-| `02-feature-engineering/01-numeric-transforms` | Numeric transforms | Skewed prices and incomes. Measure which transform changes a linear model, and which does not. | not run |
+| [`02-feature-engineering/01-numeric-transforms`](02-feature-engineering/01-numeric-transforms/) | Numeric transforms | Screen a concrete mix for compressive strength before the cylinder break. | Group CV selected degree-3 polynomials. Holdout RMSE 6.190033630528194 versus a training-mean baseline of 15.664861218083027. The holdout gap against an age log included zero |
 | `02-feature-engineering/02-categorical-encoding` | Categorical encoding | City, plan tier, and user id do not want the same encoding. | not run |
 | `02-feature-engineering/03-data-leakage` | Data leakage | A model looks excellent because the label leaked, or because the full file was scaled before the split. | not run |
 | `02-feature-engineering/04-datetime-features` | Date and time features | Hour and day of week are cycles. Treating them as ordinary numbers points the wrong way at midnight. | not run |

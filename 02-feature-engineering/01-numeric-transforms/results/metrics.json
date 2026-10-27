@@ -1,0 +1,545 @@
+{
+  "dataset": {
+    "name": "Concrete Compressive Strength",
+    "uci_id": 165,
+    "doi": "10.24432/C5PK67",
+    "api_dataset_doi": "10.24432/C5PK67",
+    "api_license_field": null,
+    "api_num_instances": 1030,
+    "api_num_features": 8,
+    "api_has_missing_values": "no",
+    "api_intro_paper_doi": "10.1016/S0008-8846(98)00165-3",
+    "api_intro_paper_title": "Modeling of strength of high-performance concrete using artificial neural networks",
+    "n_rows": 1030,
+    "n_columns": 9,
+    "n_features": 8,
+    "n_missing_modeled_cells": 0,
+    "n_recipe_groups": 427,
+    "n_recipes_with_one_row": 246,
+    "rows_per_recipe_min": 1,
+    "rows_per_recipe_max": 20,
+    "n_age_at_most_28": 749,
+    "target_min": 2.33,
+    "target_max": 82.6,
+    "target_mean": 35.817961165048544,
+    "columns": {
+      "Cement": {
+        "min": 102.0,
+        "max": 540.0,
+        "n_zero": 0,
+        "n_negative": 0,
+        "n_non_integer": 461,
+        "skew_all": 0.5094811788717729,
+        "skew_train": 0.4803666614000765,
+        "api_type": "Continuous",
+        "api_units": "kg/m^3"
+      },
+      "Blast Furnace Slag": {
+        "min": 0.0,
+        "max": 359.4,
+        "n_zero": 471,
+        "n_negative": 0,
+        "n_non_integer": 298,
+        "skew_all": 0.8007168956061769,
+        "skew_train": 0.743578162934596,
+        "api_type": "Integer",
+        "api_units": "kg/m^3"
+      },
+      "Fly Ash": {
+        "min": 0.0,
+        "max": 200.1,
+        "n_zero": 566,
+        "n_negative": 0,
+        "n_non_integer": 295,
+        "skew_all": 0.5373539058066844,
+        "skew_train": 0.6816462450772809,
+        "api_type": "Continuous",
+        "api_units": "kg/m^3"
+      },
+      "Water": {
+        "min": 121.8,
+        "max": 247.0,
+        "n_zero": 0,
+        "n_negative": 0,
+        "n_non_integer": 525,
+        "skew_all": 0.07462838428549406,
+        "skew_train": -0.0010116626082095227,
+        "api_type": "Continuous",
+        "api_units": "kg/m^3"
+      },
+      "Superplasticizer": {
+        "min": 0.0,
+        "max": 32.2,
+        "n_zero": 379,
+        "n_negative": 0,
+        "n_non_integer": 502,
+        "skew_all": 0.9072025748672463,
+        "skew_train": 0.8949451204369985,
+        "api_type": "Continuous",
+        "api_units": "kg/m^3"
+      },
+      "Coarse Aggregate": {
+        "min": 801.0,
+        "max": 1145.0,
+        "n_zero": 0,
+        "n_negative": 0,
+        "n_non_integer": 551,
+        "skew_all": -0.040219744811067104,
+        "skew_train": -0.028317785736288063,
+        "api_type": "Continuous",
+        "api_units": "kg/m^3"
+      },
+      "Fine Aggregate": {
+        "min": 594.0,
+        "max": 992.6,
+        "n_zero": 0,
+        "n_negative": 0,
+        "n_non_integer": 560,
+        "skew_all": -0.2530095976970757,
+        "skew_train": -0.2562298452014548,
+        "api_type": "Continuous",
+        "api_units": "kg/m^3"
+      },
+      "Age": {
+        "min": 1.0,
+        "max": 365.0,
+        "n_zero": 0,
+        "n_negative": 0,
+        "n_non_integer": 0,
+        "skew_all": 3.26917740063459,
+        "skew_train": 3.2290947486315322,
+        "api_type": "Integer",
+        "api_units": "day"
+      }
+    },
+    "n_feature_keys": 992,
+    "n_feature_duplicate_rows": 38,
+    "n_exact_duplicate_rows": 25,
+    "n_feature_keys_with_conflicting_strength": 9,
+    "max_distinct_strengths_for_one_key": 3,
+    "max_within_key_strength_range": 33.0,
+    "n_rows_in_conflicting_keys": 24
+  },
+  "protocol": {
+    "seed": 42,
+    "test_size": 0.2,
+    "test_size_unit": "groups",
+    "ridge_alpha": 1.0,
+    "cv_splits": 5,
+    "cv": "GroupKFold",
+    "skew_threshold": 1.0,
+    "skew_bias": false,
+    "boxcox_shift": 1.0,
+    "age_bin_edges": [
+      0.0,
+      7.0,
+      28.0,
+      90.0,
+      365.0
+    ],
+    "quantile_bins": 5,
+    "bootstrap_resamples": 1000,
+    "bootstrap_seed": 7,
+    "selection_metric": "cv_rmse_mean",
+    "selection_uses_test_scores": false,
+    "reported_model": "poly3",
+    "experiment_order": [
+      "training_mean",
+      "raw_unscaled",
+      "scaled",
+      "log1p_skewed",
+      "yeo_johnson",
+      "box_cox_shifted",
+      "coarse_age_bins",
+      "quantile_bins",
+      "water_cement",
+      "pairwise",
+      "poly2",
+      "poly2_unscaled",
+      "poly3",
+      "domain_ratio"
+    ]
+  },
+  "split": {
+    "n_train_rows": 838,
+    "n_test_rows": 192,
+    "n_train_groups": 341,
+    "n_test_groups": 86,
+    "n_groups_in_both": 0,
+    "train_target_mean": 36.262553699284005,
+    "scaler_matches_population_std": true,
+    "scaler_matches_sample_std": false
+  },
+  "scores": {
+    "training_mean": {
+      "n_features": 0,
+      "cv_rmse_mean": 16.931290790430364,
+      "cv_rmse_std": 1.2478842132480097,
+      "cv_mae_mean": 13.680633167499238,
+      "cv_train_rmse_mean": 16.926015769862538,
+      "train": {
+        "rmse": 16.93255986829567,
+        "mae": 13.656893330523296,
+        "r2": 0.0
+      },
+      "test": {
+        "rmse": 15.664861218083027,
+        "mae": 12.736988116547336,
+        "r2": -0.02373172918810207
+      }
+    },
+    "raw_unscaled": {
+      "n_features": 8,
+      "cv_rmse_mean": 10.625274414480208,
+      "cv_rmse_std": 0.5721103875283936,
+      "cv_mae_mean": 8.427072774814135,
+      "cv_train_rmse_mean": 10.464468715875784,
+      "train": {
+        "rmse": 10.482263322544233,
+        "mae": 8.326878037387017,
+        "r2": 0.6167652421024981
+      },
+      "test": {
+        "rmse": 9.900235952456008,
+        "mae": 7.658562025806629,
+        "r2": 0.5910933710385585
+      }
+    },
+    "scaled": {
+      "n_features": 8,
+      "cv_rmse_mean": 10.627077013160408,
+      "cv_rmse_std": 0.5709687653761032,
+      "cv_mae_mean": 8.43274918076491,
+      "cv_train_rmse_mean": 10.464925746518777,
+      "train": {
+        "rmse": 10.48256251650045,
+        "mae": 8.330621067048808,
+        "r2": 0.6167433645449074
+      },
+      "test": {
+        "rmse": 9.904170974587277,
+        "mae": 7.672951027374398,
+        "r2": 0.5907682522401417
+      }
+    },
+    "log1p_skewed": {
+      "n_features": 8,
+      "cv_rmse_mean": 7.397631226497627,
+      "cv_rmse_std": 0.5541096653250872,
+      "cv_mae_mean": 5.695150102773374,
+      "cv_train_rmse_mean": 7.180840983234819,
+      "train": {
+        "rmse": 7.2474564970508295,
+        "mae": 5.569508373028917,
+        "r2": 0.8167997783695746
+      },
+      "test": {
+        "rmse": 6.988865956968222,
+        "mae": 5.443506326375123,
+        "r2": 0.7962270735199037
+      }
+    },
+    "yeo_johnson": {
+      "n_features": 8,
+      "cv_rmse_mean": 7.72505051251044,
+      "cv_rmse_std": 0.5978522633574386,
+      "cv_mae_mean": 5.92510869417279,
+      "cv_train_rmse_mean": 7.3197333922186,
+      "train": {
+        "rmse": 7.364085449578393,
+        "mae": 5.701018634536844,
+        "r2": 0.8108560742119143
+      },
+      "test": {
+        "rmse": 7.119291675776917,
+        "mae": 5.6121240647659265,
+        "r2": 0.7885505143282544
+      }
+    },
+    "box_cox_shifted": {
+      "n_features": 8,
+      "cv_rmse_mean": 7.737054245709359,
+      "cv_rmse_std": 0.5951094448292737,
+      "cv_mae_mean": 5.940226130852183,
+      "cv_train_rmse_mean": 7.331895466580102,
+      "train": {
+        "rmse": 7.3761941434551845,
+        "mae": 5.71515435548133,
+        "r2": 0.8102335478006996
+      },
+      "test": {
+        "rmse": 7.124256420517239,
+        "mae": 5.608729138267056,
+        "r2": 0.7882554965613187
+      }
+    },
+    "coarse_age_bins": {
+      "n_features": 11,
+      "cv_rmse_mean": 7.4003989885965025,
+      "cv_rmse_std": 0.6591926083280676,
+      "cv_mae_mean": 5.781953859780861,
+      "cv_train_rmse_mean": 7.145112219490942,
+      "train": {
+        "rmse": 7.1736555629536864,
+        "mae": 5.622975059106659,
+        "r2": 0.8205118416459783
+      },
+      "test": {
+        "rmse": 6.921435011346708,
+        "mae": 5.43463080707857,
+        "r2": 0.8001402446186974
+      }
+    },
+    "quantile_bins": {
+      "n_features": 34,
+      "cv_rmse_mean": 8.005402524451004,
+      "cv_rmse_std": 0.48444946725720794,
+      "cv_mae_mean": 6.304428964958111,
+      "cv_train_rmse_mean": 7.231648850993888,
+      "train": {
+        "rmse": 7.294249448970613,
+        "mae": 5.770570084921674,
+        "r2": 0.8144264897204092
+      },
+      "test": {
+        "rmse": 7.079956183831242,
+        "mae": 5.725938822367595,
+        "r2": 0.790880659541489
+      }
+    },
+    "water_cement": {
+      "n_features": 9,
+      "cv_rmse_mean": 10.606823471229841,
+      "cv_rmse_std": 0.5666995337898193,
+      "cv_mae_mean": 8.374344837987564,
+      "cv_train_rmse_mean": 10.440443460096617,
+      "train": {
+        "rmse": 10.458468373923182,
+        "mae": 8.256761010480853,
+        "r2": 0.6185031685175586
+      },
+      "test": {
+        "rmse": 9.795578128127596,
+        "mae": 7.535495072163492,
+        "r2": 0.5996929799065094
+      }
+    },
+    "pairwise": {
+      "n_features": 36,
+      "cv_rmse_mean": 9.251605410001984,
+      "cv_rmse_std": 0.6781730400774262,
+      "cv_mae_mean": 7.245834776530442,
+      "cv_train_rmse_mean": 8.434703859509977,
+      "train": {
+        "rmse": 8.489921695635001,
+        "mae": 6.742269922153491,
+        "r2": 0.7486018197468844
+      },
+      "test": {
+        "rmse": 7.830033256293619,
+        "mae": 6.138115100258926,
+        "r2": 0.7442237157856942
+      }
+    },
+    "poly2": {
+      "n_features": 44,
+      "cv_rmse_mean": 8.742135486443418,
+      "cv_rmse_std": 0.6568668776302448,
+      "cv_mae_mean": 6.52924176122432,
+      "cv_train_rmse_mean": 7.492037772854644,
+      "train": {
+        "rmse": 7.585842725675782,
+        "mae": 5.864992913830964,
+        "r2": 0.7992930417481091
+      },
+      "test": {
+        "rmse": 7.272831838620529,
+        "mae": 5.632099519860421,
+        "r2": 0.779331596690254
+      }
+    },
+    "poly2_unscaled": {
+      "n_features": 44,
+      "cv_rmse_mean": 8.423876848134402,
+      "cv_rmse_std": 0.7236283301994008,
+      "cv_mae_mean": 6.331359670154912,
+      "cv_train_rmse_mean": 7.240739418046674,
+      "train": {
+        "rmse": 7.333261317781135,
+        "mae": 5.666227612881467,
+        "r2": 0.8124361741436685
+      },
+      "test": {
+        "rmse": 7.46747473657126,
+        "mae": 5.709459982907045,
+        "r2": 0.7673620379915225
+      }
+    },
+    "poly3": {
+      "n_features": 164,
+      "cv_rmse_mean": 7.3877967987695445,
+      "cv_rmse_std": 0.5505146695050863,
+      "cv_mae_mean": 5.279587143176128,
+      "cv_train_rmse_mean": 5.4878874215058495,
+      "train": {
+        "rmse": 5.564549512546464,
+        "mae": 4.230992108053898,
+        "r2": 0.8920022313758647
+      },
+      "test": {
+        "rmse": 6.190033630528194,
+        "mae": 4.522840362131364,
+        "r2": 0.8401476306860943
+      }
+    },
+    "domain_ratio": {
+      "n_features": 9,
+      "cv_rmse_mean": 7.411920719641641,
+      "cv_rmse_std": 0.5613958414959239,
+      "cv_mae_mean": 5.689964104584926,
+      "cv_train_rmse_mean": 7.189544383615692,
+      "train": {
+        "rmse": 7.2136862373863435,
+        "mae": 5.540961404481847,
+        "r2": 0.818503080827383
+      },
+      "test": {
+        "rmse": 6.842310011022934,
+        "mae": 5.320336076029818,
+        "r2": 0.8046836700435516
+      }
+    }
+  },
+  "failures": {},
+  "selection": {
+    "reported_model": "poly3",
+    "test_rmse_winner": "poly3",
+    "test_winner_was_selected": true
+  },
+  "transforms": {
+    "unshifted_box_cox_error": "ValueError: The Box-Cox transformation can only be applied to strictly positive data",
+    "log1p_columns": [
+      "Age"
+    ],
+    "log1p_skew_train": {
+      "Cement": 0.4803666614000765,
+      "Blast Furnace Slag": 0.743578162934596,
+      "Fly Ash": 0.6816462450772809,
+      "Water": -0.0010116626082095227,
+      "Superplasticizer": 0.8949451204369985,
+      "Coarse Aggregate": -0.028317785736288063,
+      "Fine Aggregate": -0.2562298452014548,
+      "Age": 3.2290947486315322
+    },
+    "yeo_johnson_lambdas": {
+      "Cement": 0.21765940728099728,
+      "Blast Furnace Slag": 0.042289239116297825,
+      "Fly Ash": -0.21749567059379252,
+      "Water": 1.0129645878103886,
+      "Superplasticizer": 0.1875030113182317,
+      "Coarse Aggregate": 1.0772083938081565,
+      "Fine Aggregate": 1.835557912817651,
+      "Age": -0.00353011793143218
+    },
+    "box_cox_shifted_lambdas": {
+      "Cement": 0.2201561629623302,
+      "Blast Furnace Slag": 0.04228923341685448,
+      "Fly Ash": -0.2174956921455455,
+      "Water": 1.0129336694413211,
+      "Superplasticizer": 0.1875030195656863,
+      "Coarse Aggregate": 1.0770527217333625,
+      "Fine Aggregate": 1.8344149654182709,
+      "Age": 0.04305261581320935
+    },
+    "box_cox_shifts": {
+      "Cement": 0.0,
+      "Blast Furnace Slag": 1.0,
+      "Fly Ash": 1.0,
+      "Water": 0.0,
+      "Superplasticizer": 1.0,
+      "Coarse Aggregate": 0.0,
+      "Fine Aggregate": 0.0,
+      "Age": 0.0
+    }
+  },
+  "random_row_split": {
+    "n_train_rows": 824,
+    "n_test_rows": 206,
+    "n_test_rows_whose_recipe_is_in_train": 150,
+    "n_test_recipes_also_in_train": 105,
+    "scaled_test": {
+      "rmse": 9.796178196607418,
+      "mae": 7.7519667253937445,
+      "r2": 0.6275758154536215
+    },
+    "selected_pipeline_test": {
+      "rmse": 6.347633512843232,
+      "mae": 4.845737003998901,
+      "r2": 0.8436318812638061
+    },
+    "selected_pipeline": "poly3",
+    "used_for_selection": false
+  },
+  "bootstrap": {
+    "training_mean_rmse_minus_selected": {
+      "n_resamples": 1000,
+      "seed": 7,
+      "gap_mean": 9.498493013491204,
+      "gap_p2_5": 8.142389201657997,
+      "gap_p97_5": 10.862740258135686,
+      "fraction_challenger_better": 1.0
+    },
+    "scaled_rmse_minus_selected": {
+      "n_resamples": 1000,
+      "seed": 7,
+      "gap_mean": 3.705213337996621,
+      "gap_p2_5": 2.520829655851848,
+      "gap_p97_5": 4.916652199579185,
+      "fraction_challenger_better": 1.0
+    },
+    "log1p_rmse_minus_selected": {
+      "n_resamples": 1000,
+      "seed": 7,
+      "gap_mean": 0.8091029992329232,
+      "gap_p2_5": -0.06188102255652603,
+      "gap_p97_5": 1.6122677511670183,
+      "fraction_challenger_better": 0.961
+    }
+  },
+  "gaps": {
+    "training_mean_test_rmse_minus_selected": 9.474827587554834,
+    "scaled_test_rmse_minus_selected": 3.7141373440590835,
+    "log1p_test_rmse_minus_selected": 0.7988323264400279,
+    "poly3_cv_rmse_minus_log1p": -0.00983442772808285,
+    "scaled_cv_rmse_minus_raw": 0.0018025986802001626,
+    "domain_cv_rmse_minus_log1p": 0.014289493144013399
+  },
+  "quantile_bin_warnings": {
+    "n_warnings": 24,
+    "unique_messages": [
+      "Bins whose width are too small (i.e., <= 1e-8) in feature 1 are removed. Consider decreasing the number of bins.",
+      "Bins whose width are too small (i.e., <= 1e-8) in feature 2 are removed. Consider decreasing the number of bins.",
+      "Bins whose width are too small (i.e., <= 1e-8) in feature 4 are removed. Consider decreasing the number of bins.",
+      "Bins whose width are too small (i.e., <= 1e-8) in feature 7 are removed. Consider decreasing the number of bins."
+    ],
+    "feature_indexes": [
+      1,
+      2,
+      4,
+      7
+    ],
+    "feature_names": [
+      "Blast Furnace Slag",
+      "Fly Ash",
+      "Superplasticizer",
+      "Age"
+    ]
+  },
+  "elapsed_seconds": 3.367126900000585,
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.18.1"
+  }
+}
