@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `01-data-and-eda/01-messy-data-cleanup`
+Next: `01-data-and-eda/02-eda-report`
 
 Last updated: 2026-10-27
 
@@ -31,6 +31,11 @@ Project count: 87
   cancer log loss 0.07716713894283675; unregularized holdout log loss
   13.33741462393542. LinkedIn draft:
   `linkedin-posts/04-linear-logistic-from-scratch.md`.
+- 2026-10-27: `01-data-and-eda/01-messy-data-cleanup` done. Padded test
+  categories raised published-test log loss from 0.3207506692781671 to
+  0.42049919201950064. The capital-gain IQR fence collapsed to 0.0 and the
+  drop raised log loss to 0.34962426376625366. LinkedIn draft:
+  `linkedin-posts/05-messy-data-cleanup.md`.
 
 ## Phase 1 - Setup
 
@@ -60,7 +65,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 
 | Path | Status | Teaches |
 | --- | --- | --- |
-| `01-data-and-eda/01-messy-data-cleanup` | todo | MCAR, MAR, MNAR, duplicates, inconsistent categories, outliers |
+| `01-data-and-eda/01-messy-data-cleanup` | done | MCAR, MAR, MNAR, duplicates, inconsistent categories, outliers |
 | `01-data-and-eda/02-eda-report` | todo | Univariate and bivariate views, correlation versus causation, train versus test shift |
 | `01-data-and-eda/03-data-validation` | todo | Schema checks that fail a bad file before scoring |
 | `01-data-and-eda/04-sql-for-ml` | todo | Multi-table feature extraction with DuckDB |

@@ -6,7 +6,7 @@ Runnable machine learning projects, from the linear algebra you need on a whiteb
 
 This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 2 in progress. Four foundations projects have measured results. The rest of the curriculum is planned.
+> Status: Phase 2 in progress. Four foundations projects and the first data-cleanup project have measured results. The rest of the curriculum is planned.
 
 ## Who it is for
 
@@ -207,7 +207,7 @@ A `not run` cell is not a result.
 
 | Project | Topic | Use case | Key result |
 | --- | --- | --- | --- |
-| `01-data-and-eda/01-messy-data-cleanup` | Missing data and cleanup | An operations export with missing fields, duplicate rows, and three spellings of one category. | not run |
+| [`01-data-and-eda/01-messy-data-cleanup`](01-data-and-eda/01-messy-data-cleanup/) | Missing data and cleanup | A census extract whose test labels and padded fields do not match the training file. | Padded categories raised published-test log loss from 0.3207506692781671 to 0.42049919201950064 |
 | `01-data-and-eda/02-eda-report` | Exploratory data analysis | A stakeholder asks what is in the data, including whether the test period matches training. | not run |
 | `01-data-and-eda/03-data-validation` | Data validation | A new extract should fail a schema check instead of being scored silently. | not run |
 | `01-data-and-eda/04-sql-for-ml` | SQL for ML | Build customer features from orders, customers, and products without standing up a warehouse. | not run |
