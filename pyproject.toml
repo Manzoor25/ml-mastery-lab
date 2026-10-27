@@ -10,4 +10,4 @@ select = ["E", "F", "I", "UP", "B"]
 quote-style = "double"
 
 [tool.pytest.ini_options]
-addopts = "-q --tb=short --ignore=templates"
+addopts = "-q --tb=short --ignore=templates --import-mode=importlib"

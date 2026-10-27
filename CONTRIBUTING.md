@@ -31,7 +31,7 @@ Copy the headings in [templates/README_TEMPLATE.md](templates/README_TEMPLATE.md
 - Include at least one experiment that did worse, and explain why.
 - Every number in the README must match `results/metrics.json`. Do not type a metric from memory.
 - Plots need a title and axis labels.
-- Smoke tests run on a tiny sample and finish in under 30 seconds.
+- Smoke tests run on a tiny sample and finish in under 30 seconds. Keep the file name `tests/test_smoke.py`. Root pytest uses `--import-mode=importlib` so those duplicate module names can be collected together.
 - Keep a full project under about 15 minutes on a laptop CPU, unless the project is about scale. If it is, run a small subset and write how you would scale it.
 - Copy `LINKEDIN.md` to `linkedin-posts/` using the next number in curriculum order. Drafts only. Do not publish them from this repo.
 
