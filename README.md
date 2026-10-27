@@ -4,9 +4,9 @@
 
 Runnable machine learning projects, from the linear algebra you need on a whiteboard to the production questions a team actually asks. Each project is a small piece of work an ML engineer would recognize: a problem, a baseline, an improvement, a failure, and numbers produced by the code in that folder.
 
-This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Nothing in the project table below has been run yet.
+This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 1 complete. The curriculum is planned. No project has been executed, so this README has no model metrics.
+> Status: Phase 2 in progress. `00-foundations/01-linalg-probability-stats` has measured results. The rest of the curriculum is planned.
 
 ## Who it is for
 
@@ -21,7 +21,7 @@ This is not a reading list. If a number is in a project README, it came from `re
 3. Enter a project folder and run `python main.py`.
 4. Read the project README next to the plots in `results/`.
 
-Project folders are added when the project is built. Until then, the path in the table is the planned location, not a link to a missing file.
+Finished project folders are linked from the table. Until a project is built, the path is the planned location, not a link to a missing file.
 
 ## Learning paths
 
@@ -198,7 +198,7 @@ A `not run` cell is not a result.
 
 | Project | Topic | Use case | Key result |
 | --- | --- | --- | --- |
-| `00-foundations/01-linalg-probability-stats` | Linear algebra, probability, statistics | Decide whether a measured gap is signal or sampling noise before anyone fits a model. | not run |
+| [`00-foundations/01-linalg-probability-stats`](00-foundations/01-linalg-probability-stats/) | Linear algebra, probability, statistics | Decide whether a measured gap is signal or sampling noise before anyone fits a model. | Unscaled PC1 holds 0.9981 of variance; null 13-test false-alarm rate is 0.387 |
 | `00-foundations/02-gradient-descent` | Gradient descent | A training loss stalls or blows up, and you need to see why the step moved that way. | not run |
 | `00-foundations/03-bias-variance` | Bias-variance tradeoff | A flexible model wins on the training customers and loses on the next month. | not run |
 | `00-foundations/04-linear-logistic-from-scratch` | Linear and logistic regression | A yes-or-no score whose coefficients you can derive, then verify against a library. | not run |

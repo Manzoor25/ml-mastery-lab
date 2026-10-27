@@ -1,0 +1,69 @@
+{
+  "seed": 42,
+  "n_samples": 178,
+  "n_features": 13,
+  "class_counts": {
+    "class_0": 59,
+    "class_1": 71,
+    "class_2": 48
+  },
+  "cosine_first_two_class0_scaled": 0.5622599141955993,
+  "unscaled_pc1_variance_fraction": 0.998091230491897,
+  "unscaled_pc1_dominant_feature": "proline",
+  "unscaled_pc1_dominant_abs_loading": 0.9998229365233259,
+  "unscaled_pc1_alcohol_r2": 0.41440441785105253,
+  "alcohol_column_std": 0.8118265380058575,
+  "proline_column_std": 314.9074742768491,
+  "scaled_pc1_variance_fraction": 0.36198848099926323,
+  "scaled_top2_variance_fraction": 0.5540633835693526,
+  "scaled_top3_variance_fraction": 0.6652996889318523,
+  "scaled_pc1_alcohol_r2": 0.0980274460479944,
+  "eigen_svd_max_abs_diff": 2.498001805406602e-16,
+  "naive_unequal_mean_count": 13,
+  "alcohol_mean_class_0": 13.744745762711865,
+  "alcohol_mean_class_1": 12.278732394366195,
+  "alcohol_mean_diff": 1.4660133683456706,
+  "alcohol_welch_statistic": 16.71133933365354,
+  "alcohol_welch_df": 127.84705824080136,
+  "alcohol_welch_pvalue": 5.926412330452181e-34,
+  "alcohol_permutation_pvalue": 9.999000099990002e-05,
+  "alcohol_bootstrap_replicates": 10000,
+  "alcohol_bootstrap_ci_low": 1.2897397947004077,
+  "alcohol_bootstrap_ci_high": 1.6353668536643602,
+  "alcohol_bootstrap_ci_excludes_zero": true,
+  "n_features_welch_p_below_0_05": 11,
+  "n_features_welch_p_below_bonferroni": 11,
+  "bonferroni_alpha": 0.0038461538461538464,
+  "weakest_feature": "hue",
+  "weakest_feature_welch_pvalue": 0.840188714904708,
+  "nonsignificant_features": [
+    {
+      "feature": "malic_acid",
+      "welch_pvalue": 0.6044843798557243
+    },
+    {
+      "feature": "hue",
+      "welch_pvalue": 0.840188714904708
+    }
+  ],
+  "null_simulations": 1000,
+  "null_family_wise_error_rate": 0.387,
+  "null_family_wise_error_se": 0.015402305022301045,
+  "independence_family_wise_error_rate": 0.4866579167204952,
+  "alpha": 0.05,
+  "scaled_variance_fractions": [
+    0.36198848099926323,
+    0.19207490257008938,
+    0.11123630536249979,
+    0.0706903018271403,
+    0.065632936796486,
+    0.04935823319222573,
+    0.04238679322623318,
+    0.02680748948378864,
+    0.022221534047897118,
+    0.01930019093944079,
+    0.0173683568998991,
+    0.012982325756042128,
+    0.007952148898994512
+  ]
+}

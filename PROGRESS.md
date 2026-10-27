@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `00-foundations/01-linalg-probability-stats`
+Next: `00-foundations/02-gradient-descent`
 
 Last updated: 2026-10-27
 
@@ -17,6 +17,9 @@ Project count: 87
 - 2026-10-27: Phase 1 complete. Public repo, MIT license, CI, curriculum plan,
   and README draft are in place. No project has been run. There are no model
   metrics to report. LinkedIn drafts: none.
+- 2026-10-27: `00-foundations/01-linalg-probability-stats` done. Unscaled PC1
+  variance fraction 0.9981 is a proline-unit artifact. Null 13-test family-wise
+  error rate 0.387. LinkedIn draft: `linkedin-posts/01-linalg-probability-stats.md`.
 
 ## Phase 1 - Setup
 
@@ -37,7 +40,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 
 | Path | Status | Teaches |
 | --- | --- | --- |
-| `00-foundations/01-linalg-probability-stats` | todo | Vectors, matrices, eigendecomposition, distributions, hypothesis tests, bootstrap |
+| `00-foundations/01-linalg-probability-stats` | done | Vectors, matrices, eigendecomposition, distributions, hypothesis tests, bootstrap |
 | `00-foundations/02-gradient-descent` | todo | Batch, stochastic, mini-batch, momentum, and Adam on a visible loss surface |
 | `00-foundations/03-bias-variance` | todo | An empirical decomposition, not only the textbook picture |
 | `00-foundations/04-linear-logistic-from-scratch` | todo | Both models from scratch, then a check against scikit-learn |
