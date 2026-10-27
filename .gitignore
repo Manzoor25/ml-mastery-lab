@@ -218,3 +218,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Downloaded datasets. Scripts fetch these; do not commit them.
+data/
+datasets/
+
+# Large or local training artifacts. Commit results/ (metrics and plots).
+mlruns/
+wandb/
+catboost_info/
+lightning_logs/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.pkl
+*.joblib
+
+# OS junk
+.DS_Store
+Thumbs.db
