@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `01-data-and-eda/03-data-validation`
+Next: `01-data-and-eda/04-sql-for-ml`
 
 Last updated: 2026-10-27
 
@@ -42,6 +42,12 @@ Project count: 87
   227.80800899708046. A random split of the same size scored
   110.56838688362778 because 4344 of its training rows were 2012 hours.
   LinkedIn draft: `linkedin-posts/06-eda-report.md`.
+- 2026-10-27: `01-data-and-eda/03-data-validation` done. A null-only schema
+  passed the stripped Adult test file. The reported schema failed all 16281
+  income labels. Scoring padded features raised log loss from
+  0.31833658576426743 to 0.425486700706032. An unknown workclass token failed
+  the schema, and its log-loss interval included zero. LinkedIn draft:
+  `linkedin-posts/07-data-validation.md`.
 
 ## Phase 1 - Setup
 
@@ -73,7 +79,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | --- | --- | --- |
 | `01-data-and-eda/01-messy-data-cleanup` | done | MCAR, MAR, MNAR, duplicates, inconsistent categories, outliers |
 | `01-data-and-eda/02-eda-report` | done | Univariate and bivariate views, correlation versus causation, train versus test shift |
-| `01-data-and-eda/03-data-validation` | todo | Schema checks that fail a bad file before scoring |
+| `01-data-and-eda/03-data-validation` | done | Schema checks that fail a bad file before scoring |
 | `01-data-and-eda/04-sql-for-ml` | todo | Multi-table feature extraction with DuckDB |
 
 ### 02 Feature engineering

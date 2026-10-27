@@ -1,0 +1,501 @@
+{
+  "elapsed_seconds": 2.8029182000009314,
+  "pandera_version": "0.34.1",
+  "data": {
+    "doi": "10.24432/C5XW20",
+    "api_missing_symbol": "NaN",
+    "names_missing_token": "?",
+    "names_class_line": ">50K, <=50K.",
+    "test_preamble": "|1x3 Cross validator",
+    "n_train": 32561,
+    "n_test": 16281,
+    "n_train_plus_test": 48842,
+    "names_instance_claim": 48842,
+    "names_train_claim": 32561,
+    "names_test_claim": 16281
+  },
+  "protocol": {
+    "seed": 42,
+    "logistic_c": 1.0,
+    "logistic_max_iter": 2000,
+    "log_loss_clip": 1e-12,
+    "donor_age_gt": 16,
+    "donor_weight_gt": 1,
+    "donor_hours_gt": 0,
+    "age_cap": 120,
+    "hours_cap": 168,
+    "age_cap_is_in_donor_note": false,
+    "hours_cap_is_in_donor_note": false,
+    "corruption_rate": 0.05,
+    "corruption_seed": 42,
+    "age_shift": 100,
+    "unknown_level": "N/A",
+    "bootstrap_resamples": 1000,
+    "bootstrap_seed": 7,
+    "reported_model_features_exclude": [
+      "fnlwgt",
+      "education",
+      "race"
+    ],
+    "question_mark_allowed_because": "donor note maps Unknown to ?, and training uses it"
+  },
+  "inventory": {
+    "income_labels_train": [
+      "<=50K",
+      ">50K"
+    ],
+    "income_labels_stripped_test": [
+      "<=50K.",
+      ">50K."
+    ],
+    "question_mark_counts_train": {
+      "workclass": 1836,
+      "education": 0,
+      "marital_status": 0,
+      "occupation": 1843,
+      "relationship": 0,
+      "race": 0,
+      "sex": 0,
+      "native_country": 583
+    },
+    "education_map": {
+      "max_nums_per_education": 1,
+      "max_educations_per_num": 1,
+      "is_one_to_one": true,
+      "map": {
+        "10th": 6,
+        "11th": 7,
+        "12th": 8,
+        "1st-4th": 2,
+        "5th-6th": 3,
+        "7th-8th": 4,
+        "9th": 5,
+        "Assoc-acdm": 12,
+        "Assoc-voc": 11,
+        "Bachelors": 13,
+        "Doctorate": 16,
+        "HS-grad": 9,
+        "Masters": 14,
+        "Preschool": 1,
+        "Prof-school": 15,
+        "Some-college": 10
+      }
+    },
+    "train_fnlwgt_max": 1484705.0,
+    "test_fnlwgt_max": 1490400.0,
+    "train_capital_gain_max": 99999.0,
+    "test_capital_gain_max": 99999.0,
+    "n_corrupted_rows": 814,
+    "n_age_rows_above_cap": 770,
+    "n_corrupted_age_rows_still_within_cap": 44,
+    "n_raw_train_padded_rows": 32561,
+    "n_raw_test_padded_rows": 16281,
+    "n_null_cells_raw_test": 0
+  },
+  "gates": [
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 455854,
+      "n_failed_rows": 32561,
+      "by_check": [
+        {
+          "column": "capital_gain",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "capital_loss",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "education",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "education_num",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "fnlwgt",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "hours_per_week",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "income",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "marital_status",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "native_country",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "occupation",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "race",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "relationship",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "sex",
+          "check": "no leading or trailing space",
+          "n": 32561
+        },
+        {
+          "column": "workclass",
+          "check": "no leading or trailing space",
+          "n": 32561
+        }
+      ],
+      "example_values": [
+        " State-gov",
+        " 0",
+        " 99999",
+        " 4416",
+        " 10605"
+      ],
+      "extract": "raw_train",
+      "schema": "no_padding",
+      "label": "Raw train, no padding"
+    },
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 227934,
+      "n_failed_rows": 16281,
+      "by_check": [
+        {
+          "column": "capital_gain",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "capital_loss",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "education",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "education_num",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "fnlwgt",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "hours_per_week",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "income",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "marital_status",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "native_country",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "occupation",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "race",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "relationship",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "sex",
+          "check": "no leading or trailing space",
+          "n": 16281
+        },
+        {
+          "column": "workclass",
+          "check": "no leading or trailing space",
+          "n": 16281
+        }
+      ],
+      "example_values": [
+        " Private",
+        " 0",
+        " 9562",
+        " 15024",
+        " 5178"
+      ],
+      "extract": "raw_test",
+      "schema": "no_padding",
+      "label": "Raw test, no padding"
+    },
+    {
+      "passed": true,
+      "error_type": null,
+      "n_failure_cases": 0,
+      "n_failed_rows": 0,
+      "by_check": [],
+      "example_values": [],
+      "extract": "stripped_train",
+      "schema": "reported",
+      "label": "Stripped train, reported"
+    },
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 16281,
+      "n_failed_rows": 16281,
+      "by_check": [
+        {
+          "column": "income",
+          "check": "isin(['<=50K', '>50K'])",
+          "n": 16281
+        }
+      ],
+      "example_values": [
+        "<=50K.",
+        ">50K."
+      ],
+      "extract": "stripped_test",
+      "schema": "reported",
+      "label": "Stripped test, reported"
+    },
+    {
+      "passed": true,
+      "error_type": null,
+      "n_failure_cases": 0,
+      "n_failed_rows": 0,
+      "by_check": [],
+      "example_values": [],
+      "extract": "stripped_test",
+      "schema": "nulls_only",
+      "label": "Stripped test, nulls only"
+    },
+    {
+      "passed": true,
+      "error_type": null,
+      "n_failure_cases": 0,
+      "n_failed_rows": 0,
+      "by_check": [],
+      "example_values": [],
+      "extract": "cleaned_test",
+      "schema": "reported",
+      "label": "Cleaned test, reported"
+    },
+    {
+      "passed": true,
+      "error_type": null,
+      "n_failure_cases": 0,
+      "n_failed_rows": 0,
+      "by_check": [],
+      "example_values": [],
+      "extract": "cleaned_test",
+      "schema": "nulls_only",
+      "label": "Cleaned test, nulls only"
+    },
+    {
+      "passed": true,
+      "error_type": null,
+      "n_failure_cases": 0,
+      "n_failed_rows": 0,
+      "by_check": [],
+      "example_values": [],
+      "extract": "age_plus_100",
+      "schema": "donor_lower_bounds",
+      "label": "Age +100, lower bounds"
+    },
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 770,
+      "n_failed_rows": 770,
+      "by_check": [
+        {
+          "column": "age",
+          "check": "less_than_or_equal_to(120)",
+          "n": 770
+        }
+      ],
+      "example_values": [
+        "131",
+        "166",
+        "155",
+        "122",
+        "148"
+      ],
+      "extract": "age_plus_100",
+      "schema": "reported",
+      "label": "Age +100, reported"
+    },
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 814,
+      "n_failed_rows": 814,
+      "by_check": [
+        {
+          "column": "workclass",
+          "check": "isin(['Private', 'Self-emp-not-inc', 'Self-emp-inc', 'Federal-gov', 'Local-gov', 'State-gov', 'Without-pay', 'Never-worked', '?'])",
+          "n": 814
+        }
+      ],
+      "example_values": [
+        "N/A"
+      ],
+      "extract": "unknown_workclass",
+      "schema": "reported",
+      "label": "Unknown category, reported"
+    },
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 4262,
+      "n_failed_rows": 2399,
+      "by_check": [
+        {
+          "column": "native_country",
+          "check": "isin(['United-States', 'Cambodia', 'England', 'Puerto-Rico', 'Canada', 'Germany', 'Outlying-US(Guam-USVI-etc)', 'India', 'Japan', 'Greece', 'South', 'China', 'Cuba', 'Iran', 'Honduras', 'Philippines', 'Italy', 'Poland', 'Jamaica', 'Vietnam', 'Mexico', 'Portugal', 'Ireland', 'France', 'Dominican-Republic', 'Laos', 'Ecuador', 'Taiwan', 'Haiti', 'Columbia', 'Hungary', 'Guatemala', 'Nicaragua', 'Scotland', 'Thailand', 'Yugoslavia', 'El-Salvador', 'Trinadad&Tobago', 'Peru', 'Hong', 'Holand-Netherlands'])",
+          "n": 583
+        },
+        {
+          "column": "occupation",
+          "check": "isin(['Tech-support', 'Craft-repair', 'Other-service', 'Sales', 'Exec-managerial', 'Prof-specialty', 'Handlers-cleaners', 'Machine-op-inspct', 'Adm-clerical', 'Farming-fishing', 'Transport-moving', 'Priv-house-serv', 'Protective-serv', 'Armed-Forces'])",
+          "n": 1843
+        },
+        {
+          "column": "workclass",
+          "check": "isin(['Private', 'Self-emp-not-inc', 'Self-emp-inc', 'Federal-gov', 'Local-gov', 'State-gov', 'Without-pay', 'Never-worked'])",
+          "n": 1836
+        }
+      ],
+      "example_values": [
+        "?"
+      ],
+      "extract": "stripped_train",
+      "schema": "no_question_mark",
+      "label": "Train, no question mark"
+    },
+    {
+      "passed": false,
+      "error_type": "SchemaErrors",
+      "n_failure_cases": 1,
+      "n_failed_rows": 1,
+      "by_check": [
+        {
+          "column": "fnlwgt",
+          "check": "less_than_or_equal_to(1484705.0)",
+          "n": 1
+        }
+      ],
+      "example_values": [
+        "1490400"
+      ],
+      "extract": "cleaned_test",
+      "schema": "train_max_weight",
+      "label": "Cleaned test, train-max weight"
+    }
+  ],
+  "scores": {
+    "constant_rate": {
+      "n_scored": 16281,
+      "train_positive_rate": 0.2408095574460244,
+      "log_loss": 0.5467485574653357,
+      "accuracy_at_0_5": 0.7637737239727289,
+      "roc_auc": null
+    },
+    "cleaned_test": {
+      "n_scored": 16281,
+      "log_loss": 0.31833658576426743,
+      "accuracy_at_0_5": 0.8529574350469873,
+      "n_iter": 65,
+      "roc_auc": 0.9048541861256276
+    },
+    "padded_features": {
+      "n_scored": 16281,
+      "log_loss": 0.425486700706032,
+      "accuracy_at_0_5": 0.809225477550519,
+      "n_iter": 65,
+      "roc_auc": 0.8223558134122712
+    },
+    "age_plus_100": {
+      "n_scored": 16281,
+      "log_loss": 0.3373689376884842,
+      "accuracy_at_0_5": 0.8428843437135312,
+      "n_iter": 65,
+      "roc_auc": 0.8955720762002977
+    },
+    "unknown_workclass": {
+      "n_scored": 16281,
+      "log_loss": 0.3185299015633552,
+      "accuracy_at_0_5": 0.8525889073152755,
+      "n_iter": 65,
+      "roc_auc": 0.9047504642445449
+    }
+  },
+  "paired_log_loss_gaps": {
+    "padded_features": {
+      "mean_difference": 0.10715011494176453,
+      "interval_low": 0.09974343153574589,
+      "interval_high": 0.11467272472014542,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "age_plus_100": {
+      "mean_difference": 0.019032351924216744,
+      "interval_low": 0.015824906773038657,
+      "interval_high": 0.022076784870518694,
+      "excludes_zero": true,
+      "n_resamples": 1000,
+      "seed": 7
+    },
+    "unknown_workclass": {
+      "mean_difference": 0.0001933157990877257,
+      "interval_low": -3.066274477825533e-05,
+      "interval_high": 0.0004156091257688888,
+      "excludes_zero": false,
+      "n_resamples": 1000,
+      "seed": 7
+    }
+  }
+}
