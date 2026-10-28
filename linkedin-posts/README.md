@@ -20,3 +20,4 @@ When a project is done, copy its `LINKEDIN.md` here as `NN-project-name.md`, in 
 | 12 | [12-datetime-features.md](12-datetime-features.md) | Draft. Not published. |
 | 13 | [13-text-features.md](13-text-features.md) | Draft. Not published. |
 | 14 | [14-geospatial-features.md](14-geospatial-features.md) | Draft. Not published. |
+| 15 | [15-aggregation-features.md](15-aggregation-features.md) | Draft. Not published. |

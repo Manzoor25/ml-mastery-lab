@@ -1,0 +1,338 @@
+{
+  "dataset": {
+    "name": "Online Retail II",
+    "uci_id": 502,
+    "doi": "10.24432/C5CG6D",
+    "license": "CC BY 4.0",
+    "citation": "Chen, D. (2012). Online Retail II. UCI Machine Learning Repository.",
+    "url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+    "zip_sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb",
+    "xlsx_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+    "sheet": "Year 2009-2010",
+    "sheet_not_read": "Year 2010-2011",
+    "rows": 525461
+  },
+  "protocol": {
+    "question": "which history aggregation predicts label-window spend",
+    "not_the_sql_project": "UCI 352 repeat purchase is a different extract and target",
+    "label_window_days": 90,
+    "cutoff": "2010-09-10T00:00:00",
+    "sheet_end": "2010-12-09T20:01:00",
+    "cutoff_rule": "floor sheet max timestamp to midnight, then subtract 90 days",
+    "purchase_rule": "parsed customer, quantity > 0, price > 0, invoice does not start with C",
+    "eligible_rule": "at least one purchase line before the cutoff",
+    "label": "sum of purchase line amount at or after the cutoff, else 0",
+    "split": "sorted customer ids, seed 42, test_size 0.2, then 0.25 of the rest",
+    "estimator": "Ridge alpha 1.0, cholesky, median imputer and scaler fit on train only",
+    "ridge_alpha": 1.0,
+    "selection_metric": "development_rmse",
+    "selection_tie_break": "fewer features, then name",
+    "selection_uses_test_scores": false,
+    "reported_model": "rfm",
+    "failed_eligible_model": "basket",
+    "failed_rule": "highest development RMSE among eligible models that were not selected",
+    "gap_definition": "other_test_rmse - reported_test_rmse",
+    "bootstrap_resamples": 1000,
+    "bootstrap_seed": 7,
+    "target_transform": "none"
+  },
+  "audit": {
+    "rows": 525461,
+    "blank_customer_rows": 107927,
+    "unparsed_customer_rows": 0,
+    "cancellation_prefix_rows": 10206,
+    "negative_quantity_rows": 12326,
+    "zero_quantity_rows": 0,
+    "nonpositive_price_rows": 3690,
+    "negative_price_rows": 3,
+    "cancellation_with_positive_quantity": 1,
+    "negative_quantity_without_cancellation_prefix": 2121,
+    "purchase_rows": 407664,
+    "countries": 40,
+    "united_kingdom_rows": 485852,
+    "united_kingdom_row_share": 0.9246204761152588,
+    "blank_description_rows": 2928,
+    "purchase_invoices": 19213,
+    "purchase_customers": 4312,
+    "history_purchase_rows": 256540,
+    "label_purchase_rows": 151124,
+    "spanning_invoices": 0,
+    "eligible_customers": 3373,
+    "label_positive_customers": 1946,
+    "train_customers": 2023,
+    "dev_customers": 675,
+    "test_customers": 675,
+    "train_label_mean": 746.8483400889768,
+    "dev_label_mean": 792.6958666666666,
+    "test_label_mean": 732.3028014814815,
+    "train_label_p99": 8090.253999999989,
+    "holdout_customers_above_train_label_p99": 6,
+    "reported_holdout_sse_share_above_train_label_p99": 0.6541166813713768,
+    "leaky_monetary_minus_honest_minus_label_max_abs": 7.275957614183426e-12,
+    "customers_whose_leaky_monetary_exceeds_honest": 1946,
+    "customers_only_in_label_window": 939,
+    "reported_holdout_negative_predictions": 8
+  },
+  "experiments": {
+    "training_mean": {
+      "eligible": true,
+      "n_features": 0,
+      "features": [],
+      "train": {
+        "rmse": 2970.8625674243804,
+        "mae": 890.5012725041166,
+        "r2": 0.0
+      },
+      "dev": {
+        "rmse": 3644.216826376693,
+        "mae": 958.2255863891177,
+        "r2": -0.00015830409486206065
+      },
+      "test": {
+        "rmse": 2326.8056756196756,
+        "mae": 833.4720911539519,
+        "r2": -3.908016222209376e-05
+      }
+    },
+    "invoice_count": {
+      "eligible": true,
+      "n_features": 1,
+      "features": [
+        "invoice_count"
+      ],
+      "train": {
+        "rmse": 2215.48275600185,
+        "mae": 738.266611913325,
+        "r2": 0.4438760167955993
+      },
+      "dev": {
+        "rmse": 2849.8692887508214,
+        "mae": 790.1326446616049,
+        "r2": 0.3883398181031542
+      },
+      "test": {
+        "rmse": 2145.124190121032,
+        "mae": 792.7675560195933,
+        "r2": 0.15003386272245978
+      }
+    },
+    "monetary_sum": {
+      "eligible": true,
+      "n_features": 1,
+      "features": [
+        "monetary_sum"
+      ],
+      "train": {
+        "rmse": 1420.2579713780767,
+        "mae": 524.0295151801238,
+        "r2": 0.7714562508444214
+      },
+      "dev": {
+        "rmse": 2314.237709867898,
+        "mae": 658.0672074236656,
+        "r2": 0.5966553887405266
+      },
+      "test": {
+        "rmse": 1365.7283437256767,
+        "mae": 523.5476298296663,
+        "r2": 0.6554713135641697
+      }
+    },
+    "recency_days": {
+      "eligible": true,
+      "n_features": 1,
+      "features": [
+        "recency_days"
+      ],
+      "train": {
+        "rmse": 2931.2442620972834,
+        "mae": 891.0451707679158,
+        "r2": 0.026493408582717093
+      },
+      "dev": {
+        "rmse": 3613.009377263986,
+        "mae": 942.8590369687361,
+        "r2": 0.01689816996410276
+      },
+      "test": {
+        "rmse": 2293.133606808985,
+        "mae": 826.8152751009025,
+        "r2": 0.02869536469901779
+      }
+    },
+    "rfm": {
+      "eligible": true,
+      "n_features": 3,
+      "features": [
+        "recency_days",
+        "invoice_count",
+        "monetary_sum"
+      ],
+      "train": {
+        "rmse": 1397.51686203652,
+        "mae": 526.995010795325,
+        "r2": 0.778716521462564
+      },
+      "dev": {
+        "rmse": 2220.8343863601813,
+        "mae": 644.2882616355289,
+        "r2": 0.6285565764409321
+      },
+      "test": {
+        "rmse": 1392.581556339998,
+        "mae": 542.9107179533374,
+        "r2": 0.6417897399456682
+      }
+    },
+    "basket": {
+      "eligible": true,
+      "n_features": 3,
+      "features": [
+        "nunique_stock",
+        "mean_line_amount",
+        "mean_quantity"
+      ],
+      "train": {
+        "rmse": 2527.4697264754427,
+        "mae": 880.1038916058076,
+        "r2": 0.27621962814721923
+      },
+      "dev": {
+        "rmse": 4145.939180770899,
+        "mae": 1026.8512408324596,
+        "r2": -0.2945122985409563
+      },
+      "test": {
+        "rmse": 4495.200039678976,
+        "mae": 1029.1651208916662,
+        "r2": -2.7324567916112494
+      }
+    },
+    "honest_block": {
+      "eligible": true,
+      "n_features": 6,
+      "features": [
+        "recency_days",
+        "invoice_count",
+        "monetary_sum",
+        "nunique_stock",
+        "mean_line_amount",
+        "mean_quantity"
+      ],
+      "train": {
+        "rmse": 1379.1597933832686,
+        "mae": 530.9784596380284,
+        "r2": 0.7844916747720257
+      },
+      "dev": {
+        "rmse": 2305.1872637775823,
+        "mae": 658.6117149369975,
+        "r2": 0.5998039941030004
+      },
+      "test": {
+        "rmse": 1450.9963990501678,
+        "mae": 554.7399757003847,
+        "r2": 0.611107639074806
+      }
+    },
+    "leaky_block": {
+      "eligible": false,
+      "n_features": 6,
+      "features": [
+        "leaky_recency_days",
+        "leaky_invoice_count",
+        "leaky_monetary_sum",
+        "leaky_nunique_stock",
+        "leaky_mean_line_amount",
+        "leaky_mean_quantity"
+      ],
+      "train": {
+        "rmse": 950.5613226813668,
+        "mae": 358.46866615828765,
+        "r2": 0.8976247075933282
+      },
+      "dev": {
+        "rmse": 1751.176095952662,
+        "mae": 463.2287098919271,
+        "r2": 0.769048935804281
+      },
+      "test": {
+        "rmse": 1055.67005539234,
+        "mae": 385.59534462398045,
+        "r2": 0.7941489206393045
+      }
+    },
+    "leaky_label_spend": {
+      "eligible": false,
+      "n_features": 1,
+      "features": [
+        "label_spend"
+      ],
+      "train": {
+        "rmse": 1.4678174740246548,
+        "mae": 0.4399709844390438,
+        "r2": 0.9999997558937025
+      },
+      "dev": {
+        "rmse": 1.8005023845748664,
+        "mae": 0.4734316138289188,
+        "r2": 0.9999997558550594
+      },
+      "test": {
+        "rmse": 1.1496075472434353,
+        "mae": 0.41179451143993345,
+        "r2": 0.9999997558841628
+      }
+    }
+  },
+  "comparisons": {
+    "training_mean": {
+      "point_gap": 934.2241192796776,
+      "interval_low": 242.47879234894026,
+      "interval_high": 1505.7168290119362,
+      "excludes_zero": true
+    },
+    "invoice_count": {
+      "point_gap": 752.5426337810338,
+      "interval_low": 390.541897898287,
+      "interval_high": 1075.0244563283372,
+      "excludes_zero": true
+    },
+    "monetary_sum": {
+      "point_gap": -26.853212614321365,
+      "interval_low": -83.76626922277254,
+      "interval_high": 42.72843679335396,
+      "excludes_zero": false
+    },
+    "recency_days": {
+      "point_gap": 900.5520504689869,
+      "interval_low": 181.78386628397246,
+      "interval_high": 1454.554086033343,
+      "excludes_zero": true
+    },
+    "basket": {
+      "point_gap": 3102.618483338978,
+      "interval_low": 631.913366306379,
+      "interval_high": 5875.020820272639,
+      "excludes_zero": true
+    },
+    "honest_block": {
+      "point_gap": 58.41484271016975,
+      "interval_low": -22.80954026516105,
+      "interval_high": 257.78571013437,
+      "excludes_zero": false
+    },
+    "leaky_block": {
+      "point_gap": -336.91150094765817,
+      "interval_low": -658.958897182996,
+      "interval_high": 81.95516545097787,
+      "excludes_zero": false
+    },
+    "leaky_label_spend": {
+      "point_gap": -1391.4319487927546,
+      "interval_low": -2069.731587309567,
+      "interval_high": -819.2999612456555,
+      "excludes_zero": true
+    }
+  }
+}

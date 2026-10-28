@@ -6,7 +6,7 @@ Runnable machine learning projects, from the linear algebra you need on a whiteb
 
 This is not a reading list. If a number is in a project README, it came from `results/metrics.json` after `python main.py`. Rows that still say `not run` have not been executed.
 
-> Status: Phase 2 in progress. Foundations, the data section, and the first six feature-engineering projects have measured results.
+> Status: Phase 2 in progress. Foundations, the data section, and the first seven feature-engineering projects have measured results.
 
 ## Who it is for
 
@@ -223,7 +223,7 @@ A `not run` cell is not a result.
 | [`02-feature-engineering/04-datetime-features`](02-feature-engineering/04-datetime-features/) | Date and time features | Forecast the next hour of westbound I-94 volume before that hour's count is known. | Training CV selected harmonics plus lags. Holdout RMSE 493.8430276959893 versus a training-mean RMSE of 1970.206195090623. A rolling mean that includes the current hour scored 492.7845532696366 and was not eligible. Its date-cluster interval included zero. |
 | [`02-feature-engineering/05-text-features`](02-feature-engineering/05-text-features/) | Text features | Turn a short comment into features a linear model can use, without fitting the vocabulary on the test text. | Development log loss selected character n-grams. Official-test log loss 0.9546742014250085 versus a training-rate log loss of 1.5041699927045604. Word bigrams did not beat unigrams. A TF-IDF vectorizer fit on the test text scored 0.998050295566316 and was not eligible. Its interval included zero. |
 | [`02-feature-engineering/06-geospatial-features`](02-feature-engineering/06-geospatial-features/) | Geospatial features | Estimate a block-group house value from income and location, without letting the scored cells enter the features. | Development RMSE selected haversine distances to five locked cities. Spatial-holdout RMSE 0.6079330366056027 versus a training-mean RMSE of 0.9652129570335812. An honest neighbor mean lost. A neighbor mean fit before the split scored 0.39365233020049006 and was not eligible. Its interval excluded zero. |
-| `02-feature-engineering/07-aggregation-features` | Aggregation features | Collapse a purchase log to one row per customer without using purchases that had not happened yet. | not run |
+| [`02-feature-engineering/07-aggregation-features`](02-feature-engineering/07-aggregation-features/) | Aggregation features | Collapse a purchase log to one row per customer without using purchases that had not happened yet. | Development RMSE selected recency, invoice count, and past spend. Holdout RMSE 1392.581556339998 versus a training-mean RMSE of 2326.8056756196756. Basket averages lost. The label as a feature scored 1.1496075472434353 and was not eligible. Its interval excluded zero. |
 | `02-feature-engineering/08-feature-selection` | Feature selection | Hundreds of columns, most of them noise. Decide what to drop, and where importance lies. | not run |
 | `02-feature-engineering/09-imbalanced-data` | Imbalanced data | A rare positive class. Accuracy is high and useless. The fixes do not agree with each other. | not run |
 | `02-feature-engineering/10-sklearn-pipelines` | sklearn pipelines | The standard way to fit transforms on the training fold only, including a deliberate leak to compare. | not run |

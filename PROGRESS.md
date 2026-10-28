@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `02-feature-engineering/07-aggregation-features`
+Next: `02-feature-engineering/08-feature-selection`
 
 Last updated: 2026-10-27
 
@@ -91,6 +91,12 @@ Project count: 87
   before the split scored 0.39365233020049006 and was not eligible. Its
   interval excluded zero. LinkedIn draft:
   `linkedin-posts/14-geospatial-features.md`.
+- 2026-10-27: `02-feature-engineering/07-aggregation-features` done. Development
+  RMSE selected recency, invoice count, and past spend. Holdout RMSE
+  1392.581556339998 versus a training-mean RMSE of 2326.8056756196756.
+  Basket averages lost to the training mean on development. The label as a
+  feature scored 1.1496075472434353 and was not eligible. Its interval
+  excluded zero. LinkedIn draft: `linkedin-posts/15-aggregation-features.md`.
 
 ## Phase 1 - Setup
 
@@ -135,7 +141,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | `02-feature-engineering/04-datetime-features` | done | Calendar fields, cyclical encoding, lags, rolling windows |
 | `02-feature-engineering/05-text-features` | done | Bag of words, TF-IDF, n-grams, and a basic embedding comparison |
 | `02-feature-engineering/06-geospatial-features` | done | Haversine distance, location clusters, and a non-spatial baseline |
-| `02-feature-engineering/07-aggregation-features` | todo | Customer-level features from a transaction log, without future rows |
+| `02-feature-engineering/07-aggregation-features` | done | Customer-level features from a transaction log, without future rows |
 | `02-feature-engineering/08-feature-selection` | todo | Filter, wrapper, embedded methods, permutation importance, SHAP-based selection |
 | `02-feature-engineering/09-imbalanced-data` | todo | Class weights, resampling, SMOTE, threshold tuning, and when each helps |
 | `02-feature-engineering/10-sklearn-pipelines` | todo | Pipeline and ColumnTransformer as the default way to avoid leakage |
