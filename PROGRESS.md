@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `02-feature-engineering/04-datetime-features`
+Next: `02-feature-engineering/05-text-features`
 
 Last updated: 2026-10-27
 
@@ -72,6 +72,12 @@ Project count: 87
   0.31782332466998575 and were not eligible. Later rows scored
   0.4751495490177361. Duration raised ROC-AUC to 0.7605625184982812 and did
   not improve log loss. LinkedIn draft: `linkedin-posts/11-data-leakage.md`.
+- 2026-10-27: `02-feature-engineering/04-datetime-features` done. Training CV
+  selected harmonics plus lags. Holdout RMSE 493.8430276959893 versus a
+  training-mean RMSE of 1970.206195090623. A rolling mean that includes the
+  current hour scored 492.7845532696366 and was not eligible. Its date-cluster
+  interval included zero. Row-shift lags scored 584.1216131515511. LinkedIn
+  draft: `linkedin-posts/12-datetime-features.md`.
 
 ## Phase 1 - Setup
 
@@ -113,7 +119,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | `02-feature-engineering/01-numeric-transforms` | done | Scaling, log, Box-Cox, Yeo-Johnson, binning, interactions, polynomials |
 | `02-feature-engineering/02-categorical-encoding` | done | One-hot, ordinal, out-of-fold target encoding, frequency, hashing, high cardinality |
 | `02-feature-engineering/03-data-leakage` | done | Target leakage, temporal leakage, and preprocessing fit before the split |
-| `02-feature-engineering/04-datetime-features` | todo | Calendar fields, cyclical encoding, lags, rolling windows |
+| `02-feature-engineering/04-datetime-features` | done | Calendar fields, cyclical encoding, lags, rolling windows |
 | `02-feature-engineering/05-text-features` | todo | Bag of words, TF-IDF, n-grams, and a basic embedding comparison |
 | `02-feature-engineering/06-geospatial-features` | todo | Haversine distance, location clusters, and a non-spatial baseline |
 | `02-feature-engineering/07-aggregation-features` | todo | Customer-level features from a transaction log, without future rows |
