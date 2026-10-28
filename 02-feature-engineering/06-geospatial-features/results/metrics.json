@@ -1,0 +1,459 @@
+{
+  "dataset": {
+    "name": "California housing",
+    "source": "StatLib houses extract redistributed by scikit-learn from figshare",
+    "url": "https://ndownloader.figshare.com/files/5976036",
+    "sha256": "aaa5c9a6afe2225cc2aed2723682ae403280c4a3695a2ddda4ffb5d8215ea681",
+    "citation": "Pace and Barry, Statistics and Probability Letters, 33:291-297, 1997",
+    "target": "MedHouseVal",
+    "target_unit": "median house value divided by 100000",
+    "cities_source": "GeoNames cities15000, CC BY 4.0, frozen 2026-10-27"
+  },
+  "protocol": {
+    "reported_model": "haversine_cities",
+    "selection_metric": "dev_rmse",
+    "selection_uses_test_scores": false,
+    "split": "every fifth sorted 0.5-degree cell is the holdout; the previous remainder is development",
+    "seed_used_for_split": false,
+    "seed": 42,
+    "bootstrap_seed": 7,
+    "bootstrap_resamples": 1000,
+    "cell_degrees": 0.5,
+    "n_clusters": 8,
+    "n_neighbors": 15,
+    "ridge_alpha": 1.0,
+    "earth_radius_km": 6371.0,
+    "gap_definition": "reference_rmse - candidate_rmse",
+    "positive_gap_means": "candidate has lower RMSE",
+    "adjacent_cells_can_leak": true,
+    "fixed_alpha_means_wider_matrix_is_not_equal_footing": true
+  },
+  "cities": [
+    {
+      "name": "Los Angeles",
+      "geonameid": "5368361",
+      "latitude": 34.05223,
+      "longitude": -118.24368,
+      "population": 3820914
+    },
+    {
+      "name": "San Diego",
+      "geonameid": "5391811",
+      "latitude": 32.71571,
+      "longitude": -117.16472,
+      "population": 1404452
+    },
+    {
+      "name": "San Jose",
+      "geonameid": "5392171",
+      "latitude": 37.33939,
+      "longitude": -121.89496,
+      "population": 997368
+    },
+    {
+      "name": "San Francisco",
+      "geonameid": "5391959",
+      "latitude": 37.77493,
+      "longitude": -122.41942,
+      "population": 827526
+    },
+    {
+      "name": "Fresno",
+      "geonameid": "5350937",
+      "latitude": 36.74773,
+      "longitude": -119.77237,
+      "population": 542107
+    }
+  ],
+  "audit": {
+    "rows": 20640,
+    "missing_feature_values": 0,
+    "censored_at_or_above_5": 992,
+    "target_max": 5.00001,
+    "columns": {
+      "MedInc": {
+        "min": 0.4999,
+        "max": 15.0001,
+        "mean": 3.8706710029069766,
+        "missing": 0
+      },
+      "HouseAge": {
+        "min": 1.0,
+        "max": 52.0,
+        "mean": 28.639486434108527,
+        "missing": 0
+      },
+      "AveRooms": {
+        "min": 0.8461538461538461,
+        "max": 141.9090909090909,
+        "mean": 5.428999742190376,
+        "missing": 0
+      },
+      "AveBedrms": {
+        "min": 0.3333333333333333,
+        "max": 34.06666666666667,
+        "mean": 1.096675149606208,
+        "missing": 0
+      },
+      "Population": {
+        "min": 3.0,
+        "max": 35682.0,
+        "mean": 1425.4767441860465,
+        "missing": 0
+      },
+      "AveOccup": {
+        "min": 0.6923076923076923,
+        "max": 1243.3333333333333,
+        "mean": 3.0706551594363742,
+        "missing": 0
+      },
+      "Latitude": {
+        "min": 32.54,
+        "max": 41.95,
+        "mean": 35.63186143410852,
+        "missing": 0
+      },
+      "Longitude": {
+        "min": -124.35,
+        "max": -114.31,
+        "mean": -119.56970445736432,
+        "missing": 0
+      }
+    },
+    "cells": 176,
+    "split_cells": {
+      "train": 106,
+      "dev": 35,
+      "test": 35
+    },
+    "split_rows": {
+      "train": 13700,
+      "dev": 5056,
+      "test": 1884
+    },
+    "target_mean": {
+      "train": 2.0439531751824815,
+      "dev": 2.387260100870253,
+      "test": 1.3921948195329088
+    },
+    "censored_rows": {
+      "train": 669,
+      "dev": 317,
+      "test": 6
+    },
+    "holdout_cells_sharing_an_edge_with_train": 31,
+    "holdout_rows_in_an_edge_adjacent_cell": 1879,
+    "holdout_nearest_training_km": {
+      "min": 0.8692532174615147,
+      "median": 10.86302933170466,
+      "mean": 14.187662973118774,
+      "p90": 33.39020512527212,
+      "max": 60.119003299138775
+    },
+    "cell_overlap": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "random_split": {
+      "eligible": false,
+      "recipe": "spatial_block",
+      "seed": 42,
+      "test_rows": 1884,
+      "test_rows_whose_cell_is_also_in_fit": 1883,
+      "test": {
+        "rmse": 0.4567734647829089,
+        "mae": 0.30333167732590455,
+        "r2": 0.8354932880649196
+      }
+    }
+  },
+  "experiments": {
+    "training_mean": {
+      "eligible": true,
+      "n_features": 0,
+      "dev": {
+        "rmse": 1.1833743120720654,
+        "mae": 0.8818593083017648,
+        "r2": -0.09189727562681438
+      },
+      "test": {
+        "rmse": 0.9652129570335812,
+        "mae": 0.8388695121034605,
+        "r2": -0.8381007913666745
+      }
+    },
+    "nonspatial": {
+      "eligible": true,
+      "n_features": 6,
+      "dev": {
+        "rmse": 0.8870658345485006,
+        "mae": 0.6254638838828149,
+        "r2": 0.3864510568012458
+      },
+      "test": {
+        "rmse": 0.6426447788247575,
+        "mae": 0.5068712830393954,
+        "r2": 0.18517376707246958
+      }
+    },
+    "raw_coordinates": {
+      "eligible": true,
+      "n_features": 8,
+      "dev": {
+        "rmse": 0.8625235717906037,
+        "mae": 0.6144071441162892,
+        "r2": 0.41993127262979957
+      },
+      "test": {
+        "rmse": 0.574128064144755,
+        "mae": 0.4315405389616199,
+        "r2": 0.3496598181858296
+      }
+    },
+    "haversine_cities": {
+      "eligible": true,
+      "n_features": 12,
+      "dev": {
+        "rmse": 0.8559907342651001,
+        "mae": 0.6126934403905657,
+        "r2": 0.4286849899121469
+      },
+      "test": {
+        "rmse": 0.6079330366056027,
+        "mae": 0.490233294316185,
+        "r2": 0.27082037509820944
+      }
+    },
+    "euclidean_degrees": {
+      "eligible": true,
+      "n_features": 12,
+      "dev": {
+        "rmse": 0.8564837689600097,
+        "mae": 0.6088045146474317,
+        "r2": 0.42802666679931656
+      },
+      "test": {
+        "rmse": 0.6015413636895895,
+        "mae": 0.48388643073188475,
+        "r2": 0.2860726371579474
+      }
+    },
+    "train_clusters": {
+      "eligible": true,
+      "n_features": 14,
+      "dev": {
+        "rmse": 0.8689581110237132,
+        "mae": 0.6303542857185502,
+        "r2": 0.4112442118149562
+      },
+      "test": {
+        "rmse": 0.6436078181788429,
+        "mae": 0.47910285597732366,
+        "r2": 0.18272981134214028
+      }
+    },
+    "train_neighbor_mean": {
+      "eligible": true,
+      "n_features": 8,
+      "dev": {
+        "rmse": 1.0688391867964555,
+        "mae": 0.8088177639258298,
+        "r2": 0.10923684885358897
+      },
+      "test": {
+        "rmse": 0.7088736339167692,
+        "mae": 0.5385832551783992,
+        "r2": 0.00857313659083958
+      }
+    },
+    "spatial_block": {
+      "eligible": true,
+      "n_features": 22,
+      "dev": {
+        "rmse": 1.05629607410349,
+        "mae": 0.7989736335270501,
+        "r2": 0.1300208620061858
+      },
+      "test": {
+        "rmse": 0.7102093164549146,
+        "mae": 0.5424185661915107,
+        "r2": 0.004833459825451691
+      }
+    },
+    "clusters_fit_on_all": {
+      "eligible": false,
+      "n_features": 14,
+      "dev": {
+        "rmse": 0.8728270646985484,
+        "mae": 0.6329308103069677,
+        "r2": 0.4059897816209088
+      },
+      "test": {
+        "rmse": 0.6355684114268049,
+        "mae": 0.4797539351463601,
+        "r2": 0.20301959509055512
+      }
+    },
+    "neighbor_fit_before_split": {
+      "eligible": false,
+      "n_features": 8,
+      "dev": {
+        "rmse": 0.5242987591662753,
+        "mae": 0.3532216399356924,
+        "r2": 0.7856639776274947
+      },
+      "test": {
+        "rmse": 0.39365233020049006,
+        "mae": 0.252443266647348,
+        "r2": 0.6942625150616837
+      }
+    }
+  },
+  "comparisons": {
+    "selected_vs_training_mean": {
+      "reference": "training_mean",
+      "candidate": "haversine_cities",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": 0.3572799204279785,
+      "interval_low": 0.2402118659369264,
+      "interval_high": 0.5912444065659797,
+      "excludes_zero": true
+    },
+    "selected_vs_nonspatial": {
+      "reference": "nonspatial",
+      "candidate": "haversine_cities",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": 0.03471174221915474,
+      "interval_low": -0.02313809654462898,
+      "interval_high": 0.10538242363720655,
+      "excludes_zero": false
+    },
+    "haversine_vs_raw_coordinates": {
+      "reference": "raw_coordinates",
+      "candidate": "haversine_cities",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": -0.03380497246084768,
+      "interval_low": -0.08081121203175537,
+      "interval_high": 0.07005925370162415,
+      "excludes_zero": false
+    },
+    "haversine_vs_euclidean_degrees": {
+      "reference": "euclidean_degrees",
+      "candidate": "haversine_cities",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": -0.006391672916013169,
+      "interval_low": -0.02805772544874165,
+      "interval_high": 0.011447543335394543,
+      "excludes_zero": false
+    },
+    "neighbor_vs_nonspatial": {
+      "reference": "nonspatial",
+      "candidate": "train_neighbor_mean",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": -0.06622885509201171,
+      "interval_low": -0.26966185817055444,
+      "interval_high": 0.26939867703107684,
+      "excludes_zero": false
+    },
+    "clusters_vs_nonspatial": {
+      "reference": "nonspatial",
+      "candidate": "train_clusters",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": -0.000963039354085482,
+      "interval_low": -0.14149646831915327,
+      "interval_high": 0.13652264654782814,
+      "excludes_zero": false
+    },
+    "spatial_block_vs_haversine": {
+      "reference": "haversine_cities",
+      "candidate": "spatial_block",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": -0.10227627984931187,
+      "interval_low": -0.29889735115466476,
+      "interval_high": 0.18438156638817677,
+      "excludes_zero": false
+    },
+    "leaky_clusters_vs_train_clusters": {
+      "reference": "train_clusters",
+      "candidate": "clusters_fit_on_all",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": 0.00803940675203807,
+      "interval_low": -0.0364251768704696,
+      "interval_high": 0.03515665213656744,
+      "excludes_zero": false
+    },
+    "leaky_neighbors_vs_train_neighbors": {
+      "reference": "train_neighbor_mean",
+      "candidate": "neighbor_fit_before_split",
+      "gap_definition": "reference_rmse - candidate_rmse",
+      "point_gap": 0.3152213037162791,
+      "interval_low": 0.07809950433073233,
+      "interval_high": 0.47624245404623766,
+      "excludes_zero": true
+    }
+  },
+  "uncapped_holdout_sensitivity": {
+    "does_not_reselect": true,
+    "rule": "target < 5",
+    "excluded_test_rows": 6,
+    "kept_test_rows": 1878,
+    "test": {
+      "rmse": 0.5956327547939062,
+      "mae": 0.4857451559414558,
+      "r2": 0.2398928892648179
+    }
+  },
+  "distance_bins_km": [
+    0.0,
+    25.0,
+    50.0,
+    100.0,
+    200.0,
+    400.0
+  ],
+  "distance_profile": [
+    {
+      "left_km": 0.0,
+      "right_km": 25.0,
+      "rows": 40,
+      "actual_mean": 1.7734499999999997,
+      "predicted_mean": 2.0183585330260505
+    },
+    {
+      "left_km": 25.0,
+      "right_km": 50.0,
+      "rows": 436,
+      "actual_mean": 1.8474886009174312,
+      "predicted_mean": 2.1284302957501056
+    },
+    {
+      "left_km": 50.0,
+      "right_km": 100.0,
+      "rows": 769,
+      "actual_mean": 1.3913901170351106,
+      "predicted_mean": 1.8204719216122505
+    },
+    {
+      "left_km": 100.0,
+      "right_km": 200.0,
+      "rows": 504,
+      "actual_mean": 1.1081984325396825,
+      "predicted_mean": 1.400468118579035
+    },
+    {
+      "left_km": 200.0,
+      "right_km": 400.0,
+      "rows": 128,
+      "actual_mean": 0.8911640625,
+      "predicted_mean": 0.6752114643816318
+    },
+    {
+      "left_km": 400.0,
+      "right_km": null,
+      "rows": 7,
+      "actual_mean": 0.5531428571428572,
+      "predicted_mean": 0.14575773002624956
+    }
+  ]
+}
