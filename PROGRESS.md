@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `02-feature-engineering/05-text-features`
+Next: `02-feature-engineering/06-geospatial-features`
 
 Last updated: 2026-10-27
 
@@ -78,6 +78,12 @@ Project count: 87
   current hour scored 492.7845532696366 and was not eligible. Its date-cluster
   interval included zero. Row-shift lags scored 584.1216131515511. LinkedIn
   draft: `linkedin-posts/12-datetime-features.md`.
+- 2026-10-27: `02-feature-engineering/05-text-features` done. Development log
+  loss selected character n-grams. Official-test log loss 0.9546742014250085
+  versus a training-rate log loss of 1.5041699927045604. Word bigrams did not
+  beat unigrams. A TF-IDF vectorizer fit on the test text scored
+  0.998050295566316 and was not eligible. Its interval included zero.
+  LinkedIn draft: `linkedin-posts/13-text-features.md`.
 
 ## Phase 1 - Setup
 
@@ -120,7 +126,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | `02-feature-engineering/02-categorical-encoding` | done | One-hot, ordinal, out-of-fold target encoding, frequency, hashing, high cardinality |
 | `02-feature-engineering/03-data-leakage` | done | Target leakage, temporal leakage, and preprocessing fit before the split |
 | `02-feature-engineering/04-datetime-features` | done | Calendar fields, cyclical encoding, lags, rolling windows |
-| `02-feature-engineering/05-text-features` | todo | Bag of words, TF-IDF, n-grams, and a basic embedding comparison |
+| `02-feature-engineering/05-text-features` | done | Bag of words, TF-IDF, n-grams, and a basic embedding comparison |
 | `02-feature-engineering/06-geospatial-features` | todo | Haversine distance, location clusters, and a non-spatial baseline |
 | `02-feature-engineering/07-aggregation-features` | todo | Customer-level features from a transaction log, without future rows |
 | `02-feature-engineering/08-feature-selection` | todo | Filter, wrapper, embedded methods, permutation importance, SHAP-based selection |

@@ -1,0 +1,821 @@
+{
+  "dataset": {
+    "name": "GoEmotions",
+    "paper": "Demszky et al., ACL 2020",
+    "doi": "10.18653/v1/2020.acl-main.372",
+    "license": "apache-2.0",
+    "license_source": "Hugging Face dataset card tag and the google-research repository",
+    "files": "google-research/google-research goemotions/data train, dev, test, emotions, ekman map",
+    "target": "ekman_emotion",
+    "target_description": "Official Ekman grouping of the fine labels. Neutral stays neutral. A comment is kept only when every fine label maps to the same coarse emotion."
+  },
+  "protocol": {
+    "reported_model": "tfidf_char",
+    "selection_metric": "dev_log_loss",
+    "selection_uses_test_scores": false,
+    "split": "official train, dev, and test files",
+    "seed_used_for_split": false,
+    "seed": 42,
+    "bootstrap_seed": 7,
+    "bootstrap_resamples": 1000,
+    "max_features": 10000,
+    "min_df": 2,
+    "svd_components": 100,
+    "logistic_c": 1.0,
+    "solver": "saga",
+    "max_iter": 200,
+    "tol": 0.001,
+    "class_weight": null,
+    "gap_definition": "reference_log_loss - candidate_log_loss",
+    "positive_gap_means": "candidate has lower log loss"
+  },
+  "audit": {
+    "raw_rows": {
+      "train": 43410,
+      "dev": 5426,
+      "test": 5427
+    },
+    "kept_rows": {
+      "train": 39555,
+      "dev": 4946,
+      "test": 4968
+    },
+    "dropped_cross_group": {
+      "train": 3855,
+      "dev": 480,
+      "test": 459
+    },
+    "kept_label_counts": {
+      "train": {
+        "anger": 4293,
+        "disgust": 498,
+        "fear": 541,
+        "joy": 15216,
+        "neutral": 12823,
+        "sadness": 2326,
+        "surprise": 3858
+      },
+      "dev": {
+        "anger": 555,
+        "disgust": 61,
+        "fear": 72,
+        "joy": 1941,
+        "neutral": 1592,
+        "sadness": 266,
+        "surprise": 459
+      },
+      "test": {
+        "anger": 572,
+        "disgust": 76,
+        "fear": 80,
+        "joy": 1863,
+        "neutral": 1606,
+        "sadness": 283,
+        "surprise": 488
+      }
+    },
+    "id_overlap": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0
+    },
+    "exact_text_overlap_raw": {
+      "train_dev": 41,
+      "train_test": 32,
+      "dev_test": 10
+    },
+    "test_rows_exact_text_in_train_or_dev": 41
+  },
+  "experiments": {
+    "training_rate": {
+      "eligible": true,
+      "dev": {
+        "log_loss": 1.4715089304108815,
+        "accuracy": 0.3924383340072786,
+        "macro_f1": 0.08052438341388538
+      },
+      "test": {
+        "log_loss": 1.5041699927045604,
+        "accuracy": 0.375,
+        "macro_f1": 0.07792207792207792
+      },
+      "n_features": 0,
+      "vectorizer_fit_documents": 0,
+      "cap_bound": false,
+      "train_zero_rows": 0,
+      "explained_variance_ratio_sum": null,
+      "convergence_warnings": 0,
+      "max_n_iter": null
+    },
+    "bow_unigram": {
+      "eligible": true,
+      "dev": {
+        "log_loss": 1.0380036280853535,
+        "accuracy": 0.6378892033966842,
+        "macro_f1": 0.5371770937276972
+      },
+      "test": {
+        "log_loss": 1.037624297000595,
+        "accuracy": 0.6340579710144928,
+        "macro_f1": 0.5388993437690537
+      },
+      "n_features": 10000,
+      "vectorizer_fit_documents": 39555,
+      "cap_bound": true,
+      "train_zero_rows": 59,
+      "explained_variance_ratio_sum": null,
+      "convergence_warnings": 0,
+      "max_n_iter": 73
+    },
+    "tfidf_unigram": {
+      "eligible": true,
+      "dev": {
+        "log_loss": 0.985144412812997,
+        "accuracy": 0.639911039223615,
+        "macro_f1": 0.49724036673451877
+      },
+      "test": {
+        "log_loss": 0.9966623100047696,
+        "accuracy": 0.6326489533011272,
+        "macro_f1": 0.4910740419526144
+      },
+      "n_features": 10000,
+      "vectorizer_fit_documents": 39555,
+      "cap_bound": true,
+      "train_zero_rows": 59,
+      "explained_variance_ratio_sum": null,
+      "convergence_warnings": 0,
+      "max_n_iter": 17
+    },
+    "tfidf_bigram": {
+      "eligible": true,
+      "dev": {
+        "log_loss": 0.9844359284642624,
+        "accuracy": 0.6380913869793773,
+        "macro_f1": 0.4961312967487464
+      },
+      "test": {
+        "log_loss": 0.9972933018782066,
+        "accuracy": 0.6358695652173914,
+        "macro_f1": 0.4676557719616882
+      },
+      "n_features": 10000,
+      "vectorizer_fit_documents": 39555,
+      "cap_bound": true,
+      "train_zero_rows": 113,
+      "explained_variance_ratio_sum": null,
+      "convergence_warnings": 0,
+      "max_n_iter": 17
+    },
+    "tfidf_char": {
+      "eligible": true,
+      "dev": {
+        "log_loss": 0.9296188540434075,
+        "accuracy": 0.6591184795794581,
+        "macro_f1": 0.5640697163327791
+      },
+      "test": {
+        "log_loss": 0.9546742014250085,
+        "accuracy": 0.6471417069243156,
+        "macro_f1": 0.5386933448170452
+      },
+      "n_features": 10000,
+      "vectorizer_fit_documents": 39555,
+      "cap_bound": true,
+      "train_zero_rows": 4,
+      "explained_variance_ratio_sum": null,
+      "convergence_warnings": 0,
+      "max_n_iter": 17
+    },
+    "lsa_100": {
+      "eligible": true,
+      "dev": {
+        "log_loss": 1.2100016438737202,
+        "accuracy": 0.542660735948241,
+        "macro_f1": 0.26923727741981146
+      },
+      "test": {
+        "log_loss": 1.2397548456659995,
+        "accuracy": 0.533816425120773,
+        "macro_f1": 0.2701533776078608
+      },
+      "n_features": 100,
+      "vectorizer_fit_documents": 39555,
+      "cap_bound": false,
+      "train_zero_rows": 59,
+      "explained_variance_ratio_sum": 0.2529340088367462,
+      "convergence_warnings": 0,
+      "max_n_iter": 14
+    },
+    "leaky_tfidf_fit_on_all": {
+      "eligible": false,
+      "dev": {
+        "log_loss": 0.9875119942828606,
+        "accuracy": 0.637282652648605,
+        "macro_f1": 0.48369864256149386
+      },
+      "test": {
+        "log_loss": 0.998050295566316,
+        "accuracy": 0.6334541062801933,
+        "macro_f1": 0.4881495418019691
+      },
+      "n_features": 10000,
+      "vectorizer_fit_documents": 49469,
+      "cap_bound": true,
+      "train_zero_rows": 59,
+      "explained_variance_ratio_sum": null,
+      "convergence_warnings": 0,
+      "max_n_iter": 17
+    }
+  },
+  "reported_test_class_metrics": {
+    "anger": {
+      "support": 572,
+      "precision": 0.556923076923077,
+      "recall": 0.31643356643356646,
+      "f1": 0.4035674470457079
+    },
+    "disgust": {
+      "support": 76,
+      "precision": 0.8333333333333334,
+      "recall": 0.32894736842105265,
+      "f1": 0.4716981132075471
+    },
+    "fear": {
+      "support": 80,
+      "precision": 0.8333333333333334,
+      "recall": 0.375,
+      "f1": 0.5172413793103448
+    },
+    "joy": {
+      "support": 1863,
+      "precision": 0.7645822385706779,
+      "recall": 0.7809983896940419,
+      "f1": 0.7727031332979288
+    },
+    "neutral": {
+      "support": 1606,
+      "precision": 0.553715308863026,
+      "recall": 0.7702366127023661,
+      "f1": 0.6442708333333333
+    },
+    "sadness": {
+      "support": 283,
+      "precision": 0.7,
+      "recall": 0.3957597173144876,
+      "f1": 0.5056433408577878
+    },
+    "surprise": {
+      "support": 488,
+      "precision": 0.625,
+      "recall": 0.35860655737704916,
+      "f1": 0.45572916666666663
+    }
+  },
+  "tfidf_unigram_top_tokens": {
+    "anger": [
+      {
+        "token": "fuck",
+        "coefficient": 5.194873809814453
+      },
+      {
+        "token": "stupid",
+        "coefficient": 4.670092582702637
+      },
+      {
+        "token": "fucking",
+        "coefficient": 4.584333896636963
+      },
+      {
+        "token": "hate",
+        "coefficient": 4.454041004180908
+      },
+      {
+        "token": "annoying",
+        "coefficient": 4.245807647705078
+      },
+      {
+        "token": "don",
+        "coefficient": 3.9703638553619385
+      },
+      {
+        "token": "not",
+        "coefficient": 3.6799721717834473
+      },
+      {
+        "token": "idiot",
+        "coefficient": 3.4757983684539795
+      }
+    ],
+    "disgust": [
+      {
+        "token": "disgusting",
+        "coefficient": 9.403564453125
+      },
+      {
+        "token": "awful",
+        "coefficient": 6.622898101806641
+      },
+      {
+        "token": "worst",
+        "coefficient": 5.903971195220947
+      },
+      {
+        "token": "worse",
+        "coefficient": 4.763330459594727
+      },
+      {
+        "token": "weird",
+        "coefficient": 4.301185131072998
+      },
+      {
+        "token": "nasty",
+        "coefficient": 3.8428468704223633
+      },
+      {
+        "token": "ugly",
+        "coefficient": 3.563328981399536
+      },
+      {
+        "token": "gross",
+        "coefficient": 3.1160950660705566
+      }
+    ],
+    "fear": [
+      {
+        "token": "scared",
+        "coefficient": 7.626424789428711
+      },
+      {
+        "token": "afraid",
+        "coefficient": 7.467514514923096
+      },
+      {
+        "token": "scary",
+        "coefficient": 6.74839973449707
+      },
+      {
+        "token": "terrible",
+        "coefficient": 5.708901405334473
+      },
+      {
+        "token": "terrifying",
+        "coefficient": 5.587665557861328
+      },
+      {
+        "token": "worried",
+        "coefficient": 5.3607401847839355
+      },
+      {
+        "token": "horrible",
+        "coefficient": 4.78395938873291
+      },
+      {
+        "token": "fear",
+        "coefficient": 4.3146538734436035
+      }
+    ],
+    "joy": [
+      {
+        "token": "thanks",
+        "coefficient": 10.089580535888672
+      },
+      {
+        "token": "thank",
+        "coefficient": 9.78808307647705
+      },
+      {
+        "token": "love",
+        "coefficient": 9.631671905517578
+      },
+      {
+        "token": "lol",
+        "coefficient": 9.164794921875
+      },
+      {
+        "token": "great",
+        "coefficient": 7.204427242279053
+      },
+      {
+        "token": "hope",
+        "coefficient": 6.6768598556518555
+      },
+      {
+        "token": "glad",
+        "coefficient": 6.3216471672058105
+      },
+      {
+        "token": "awesome",
+        "coefficient": 6.220049858093262
+      }
+    ],
+    "neutral": [
+      {
+        "token": "they",
+        "coefficient": 1.9016625881195068
+      },
+      {
+        "token": "remindme",
+        "coefficient": 1.73723566532135
+      },
+      {
+        "token": "name",
+        "coefficient": 1.4791628122329712
+      },
+      {
+        "token": "hello",
+        "coefficient": 1.450223684310913
+      },
+      {
+        "token": "saving",
+        "coefficient": 1.3628745079040527
+      },
+      {
+        "token": "political",
+        "coefficient": 1.3112659454345703
+      },
+      {
+        "token": "instead",
+        "coefficient": 1.2243273258209229
+      },
+      {
+        "token": "described",
+        "coefficient": 1.2205852270126343
+      }
+    ],
+    "sadness": [
+      {
+        "token": "sorry",
+        "coefficient": 9.779037475585938
+      },
+      {
+        "token": "sad",
+        "coefficient": 8.802602767944336
+      },
+      {
+        "token": "sadly",
+        "coefficient": 6.84946346282959
+      },
+      {
+        "token": "embarrassing",
+        "coefficient": 4.951836109161377
+      },
+      {
+        "token": "miss",
+        "coefficient": 4.72113561630249
+      },
+      {
+        "token": "disappointing",
+        "coefficient": 4.544331073760986
+      },
+      {
+        "token": "regret",
+        "coefficient": 4.513427257537842
+      },
+      {
+        "token": "disappointed",
+        "coefficient": 4.374821662902832
+      }
+    ],
+    "surprise": [
+      {
+        "token": "surprised",
+        "coefficient": 6.51585054397583
+      },
+      {
+        "token": "curious",
+        "coefficient": 5.999612331390381
+      },
+      {
+        "token": "confused",
+        "coefficient": 5.2557783126831055
+      },
+      {
+        "token": "wow",
+        "coefficient": 4.857744216918945
+      },
+      {
+        "token": "wonder",
+        "coefficient": 4.642239570617676
+      },
+      {
+        "token": "why",
+        "coefficient": 4.358608722686768
+      },
+      {
+        "token": "realized",
+        "coefficient": 4.294875144958496
+      },
+      {
+        "token": "shocked",
+        "coefficient": 4.032664775848389
+      }
+    ]
+  },
+  "comparisons": {
+    "selected_vs_training_rate": {
+      "reference": "training_rate",
+      "candidate": "tfidf_char",
+      "gap_definition": "reference_log_loss - candidate_log_loss",
+      "point_gap": 0.549495791279552,
+      "interval_low": 0.5241133465169708,
+      "interval_high": 0.5737837077828932,
+      "excludes_zero": true
+    },
+    "tfidf_unigram_vs_bow_unigram": {
+      "reference": "bow_unigram",
+      "candidate": "tfidf_unigram",
+      "gap_definition": "reference_log_loss - candidate_log_loss",
+      "point_gap": 0.04096198699582554,
+      "interval_low": 0.025004449853685825,
+      "interval_high": 0.05524045451960766,
+      "excludes_zero": true
+    },
+    "tfidf_bigram_vs_tfidf_unigram": {
+      "reference": "tfidf_unigram",
+      "candidate": "tfidf_bigram",
+      "gap_definition": "reference_log_loss - candidate_log_loss",
+      "point_gap": -0.0006309918734370701,
+      "interval_low": -0.008763585988184778,
+      "interval_high": 0.00725066400579212,
+      "excludes_zero": false
+    },
+    "tfidf_char_vs_tfidf_unigram": {
+      "reference": "tfidf_unigram",
+      "candidate": "tfidf_char",
+      "gap_definition": "reference_log_loss - candidate_log_loss",
+      "point_gap": 0.041988108579761096,
+      "interval_low": 0.029965660869821293,
+      "interval_high": 0.054239501843184316,
+      "excludes_zero": true
+    },
+    "lsa_100_vs_tfidf_unigram": {
+      "reference": "tfidf_unigram",
+      "candidate": "lsa_100",
+      "gap_definition": "reference_log_loss - candidate_log_loss",
+      "point_gap": -0.2430925356612299,
+      "interval_low": -0.2612399786668943,
+      "interval_high": -0.22680331494996456,
+      "excludes_zero": true
+    },
+    "leaky_tfidf_fit_on_all_vs_tfidf_unigram": {
+      "reference": "tfidf_unigram",
+      "candidate": "leaky_tfidf_fit_on_all",
+      "gap_definition": "reference_log_loss - candidate_log_loss",
+      "point_gap": -0.001387985561546401,
+      "interval_low": -0.003894780048155236,
+      "interval_high": 0.001097227477266687,
+      "excludes_zero": false
+    }
+  },
+  "overlap_sensitivity": {
+    "does_not_reselect": true,
+    "excluded_test_rows": 41,
+    "kept_test_rows": 4927,
+    "test": {
+      "log_loss": 0.9599048999764226,
+      "accuracy": 0.6452202151410594,
+      "macro_f1": 0.5369057085170554
+    }
+  },
+  "reported_top_features": {
+    "anger": [
+      {
+        "token": " no",
+        "coefficient": 3.1223602294921875
+      },
+      {
+        "token": "fuck",
+        "coefficient": 2.6224100589752197
+      },
+      {
+        "token": "fuc",
+        "coefficient": 2.6224100589752197
+      },
+      {
+        "token": " hate",
+        "coefficient": 2.502671957015991
+      },
+      {
+        "token": " hat",
+        "coefficient": 2.465305805206299
+      },
+      {
+        "token": "hate ",
+        "coefficient": 2.4105756282806396
+      },
+      {
+        "token": "hate",
+        "coefficient": 2.3724184036254883
+      },
+      {
+        "token": " fuck",
+        "coefficient": 2.3450710773468018
+      }
+    ],
+    "disgust": [
+      {
+        "token": "wors",
+        "coefficient": 3.0705034732818604
+      },
+      {
+        "token": " wors",
+        "coefficient": 2.972769021987915
+      },
+      {
+        "token": "ors",
+        "coefficient": 2.641284227371216
+      },
+      {
+        "token": " awf",
+        "coefficient": 2.3158209323883057
+      },
+      {
+        "token": " awfu",
+        "coefficient": 2.3158209323883057
+      },
+      {
+        "token": "isgus",
+        "coefficient": 2.2525713443756104
+      },
+      {
+        "token": "sgus",
+        "coefficient": 2.2525713443756104
+      },
+      {
+        "token": "sgust",
+        "coefficient": 2.2525713443756104
+      }
+    ],
+    "fear": [
+      {
+        "token": " scar",
+        "coefficient": 4.23058557510376
+      },
+      {
+        "token": "scar",
+        "coefficient": 4.12299919128418
+      },
+      {
+        "token": " sca",
+        "coefficient": 3.642467975616455
+      },
+      {
+        "token": "sca",
+        "coefficient": 3.414858818054199
+      },
+      {
+        "token": "rri",
+        "coefficient": 3.053731918334961
+      },
+      {
+        "token": " sc",
+        "coefficient": 2.7140488624572754
+      },
+      {
+        "token": "car",
+        "coefficient": 2.6728649139404297
+      },
+      {
+        "token": "orr",
+        "coefficient": 2.649416923522949
+      }
+    ],
+    "joy": [
+      {
+        "token": "lol",
+        "coefficient": 5.455506324768066
+      },
+      {
+        "token": " lol",
+        "coefficient": 5.235196113586426
+      },
+      {
+        "token": "hank",
+        "coefficient": 4.925626277923584
+      },
+      {
+        "token": "thank",
+        "coefficient": 4.925626277923584
+      },
+      {
+        "token": " lov",
+        "coefficient": 4.485811233520508
+      },
+      {
+        "token": " lo",
+        "coefficient": 4.192835807800293
+      },
+      {
+        "token": " love",
+        "coefficient": 3.852731943130493
+      },
+      {
+        "token": " i ",
+        "coefficient": 3.765045404434204
+      }
+    ],
+    "neutral": [
+      {
+        "token": "ag ",
+        "coefficient": 1.491645336151123
+      },
+      {
+        "token": " he ",
+        "coefficient": 1.460098147392273
+      },
+      {
+        "token": "ello",
+        "coefficient": 1.2856518030166626
+      },
+      {
+        "token": ".\" ",
+        "coefficient": 1.1726326942443848
+      },
+      {
+        "token": "reen",
+        "coefficient": 1.1547528505325317
+      },
+      {
+        "token": " - ",
+        "coefficient": 1.1045721769332886
+      },
+      {
+        "token": "hing.",
+        "coefficient": 1.0922930240631104
+      },
+      {
+        "token": "cap",
+        "coefficient": 1.0837209224700928
+      }
+    ],
+    "sadness": [
+      {
+        "token": "sad",
+        "coefficient": 6.9066243171691895
+      },
+      {
+        "token": " sad",
+        "coefficient": 6.800066947937012
+      },
+      {
+        "token": " sorr",
+        "coefficient": 3.5412044525146484
+      },
+      {
+        "token": "sorry",
+        "coefficient": 3.491868495941162
+      },
+      {
+        "token": "sorr",
+        "coefficient": 3.466265916824341
+      },
+      {
+        "token": " sor",
+        "coefficient": 3.1089563369750977
+      },
+      {
+        "token": "sad ",
+        "coefficient": 3.097378730773926
+      },
+      {
+        "token": "sor",
+        "coefficient": 3.0161991119384766
+      }
+    ],
+    "surprise": [
+      {
+        "token": "e? ",
+        "coefficient": 7.498030185699463
+      },
+      {
+        "token": "s? ",
+        "coefficient": 6.649196624755859
+      },
+      {
+        "token": "t? ",
+        "coefficient": 5.658104419708252
+      },
+      {
+        "token": "n? ",
+        "coefficient": 5.155064582824707
+      },
+      {
+        "token": "y? ",
+        "coefficient": 4.655029773712158
+      },
+      {
+        "token": "d? ",
+        "coefficient": 4.409488677978516
+      },
+      {
+        "token": "m? ",
+        "coefficient": 3.7893919944763184
+      },
+      {
+        "token": " wow",
+        "coefficient": 3.3378663063049316
+      }
+    ]
+  }
+}
