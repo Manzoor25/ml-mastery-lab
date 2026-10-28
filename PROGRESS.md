@@ -6,7 +6,7 @@ If you are starting a new session, read this file first and resume from the Next
 Do not skip ahead. Do not mark a project done unless `python main.py` wrote
 `results/metrics.json` and the README numbers match that file.
 
-Next: `02-feature-engineering/03-data-leakage`
+Next: `02-feature-engineering/04-datetime-features`
 
 Last updated: 2026-10-27
 
@@ -66,6 +66,12 @@ Project count: 87
   0.33981780404157347. Full one-hot of the diagnosis codes lost. An in-sample
   target encoding posted CV ROC-AUC 0.6846182227873063 and was not eligible.
   LinkedIn draft: `linkedin-posts/10-categorical-encoding.md`.
+- 2026-10-27: `02-feature-engineering/03-data-leakage` done. Honest holdout
+  log loss 0.3736699669516322 versus training-rate 0.3946184390200872. The
+  date-cluster interval included zero. Same-period rows scored
+  0.31782332466998575 and were not eligible. Later rows scored
+  0.4751495490177361. Duration raised ROC-AUC to 0.7605625184982812 and did
+  not improve log loss. LinkedIn draft: `linkedin-posts/11-data-leakage.md`.
 
 ## Phase 1 - Setup
 
@@ -106,7 +112,7 @@ Sections 00 to 02. Build these before the algorithm tour.
 | --- | --- | --- |
 | `02-feature-engineering/01-numeric-transforms` | done | Scaling, log, Box-Cox, Yeo-Johnson, binning, interactions, polynomials |
 | `02-feature-engineering/02-categorical-encoding` | done | One-hot, ordinal, out-of-fold target encoding, frequency, hashing, high cardinality |
-| `02-feature-engineering/03-data-leakage` | todo | Target leakage, temporal leakage, and preprocessing fit before the split |
+| `02-feature-engineering/03-data-leakage` | done | Target leakage, temporal leakage, and preprocessing fit before the split |
 | `02-feature-engineering/04-datetime-features` | todo | Calendar fields, cyclical encoding, lags, rolling windows |
 | `02-feature-engineering/05-text-features` | todo | Bag of words, TF-IDF, n-grams, and a basic embedding comparison |
 | `02-feature-engineering/06-geospatial-features` | todo | Haversine distance, location clusters, and a non-spatial baseline |

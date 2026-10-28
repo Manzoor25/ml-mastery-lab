@@ -16,3 +16,4 @@ When a project is done, copy its `LINKEDIN.md` here as `NN-project-name.md`, in 
 | 08 | [08-sql-for-ml.md](08-sql-for-ml.md) | Draft. Not published. |
 | 09 | [09-numeric-transforms.md](09-numeric-transforms.md) | Draft. Not published. |
 | 10 | [10-categorical-encoding.md](10-categorical-encoding.md) | Draft. Not published. |
+| 11 | [11-data-leakage.md](11-data-leakage.md) | Draft. Not published. |
